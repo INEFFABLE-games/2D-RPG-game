@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
         change.x = Input.GetAxisRaw("Horizontal"); // set user input to x 
         change.y = Input.GetAxisRaw("Vertical"); // set user input to y
 
-        Debug.Log(change); // output message in console
         if (change != Vector3.zero) // if change value more not 0 zen call move function, for optimization
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
