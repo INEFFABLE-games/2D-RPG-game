@@ -5,22 +5,46 @@ using System.Threading;
 
 public class PlayerStats : MonoBehaviour
 {
-IEnumerator Wait(int waitTime) {
-    yield
-    return new WaitForSeconds(waitTime);
-}
+
+    IEnumerator Wait(int waitTime)
+    {
+        yield
+        return new WaitForSeconds(waitTime);
+    }
+
+    private IEnumerator RegenerationHandler()
+    {
+        while (true)
+        {
+            if (!isAttacked)
+                Health += 10;
+            yield return new WaitForSeconds(1);
+        }
+    }
+
     // Start is called before the first frame update
     public delegate void OnStateChanged(string name, float value);
     public event OnStateChanged StateNotify;
 
     public bool _isAttacked;
-    public bool isAttacked{get;set;}
+    public bool isAttacked
+    {
+        get { return _isAttacked; }
+        set { _isAttacked = value; }
+    }
 
-    public delegate void OnPlayerDied(string message);
+
+    public delegate void OnPlayerDied(string mes);
     public event OnPlayerDied DiedNotify;
 
     public float _MaxHealth;
     public float _Health;
+    public float ChangeHpValue;
+
+
+    //DEbug values
+
+    //DEbug values
 
     public float MaxHealth
     {
@@ -30,9 +54,10 @@ IEnumerator Wait(int waitTime) {
         }
         set
         {
-            if(value > 0 ) _MaxHealth = value;StateNotify?.Invoke("MaxHealth",value);
+            if (value > 0) _MaxHealth = value; StateNotify?.Invoke("MaxHealth", value);
         }
     }
+
     public float Health
     {
         get
@@ -41,28 +66,27 @@ IEnumerator Wait(int waitTime) {
         }
         set
         {
-            if(value > 0 && value < MaxHealth)
+            if (value > 0 && value < MaxHealth)
             {
-                _Health = value; StateNotify?.Invoke("Health",_Health);
+                _Health = value; StateNotify?.Invoke("Health", _Health);
             }
-            else if(value <= 0)
+            else if (value <= 0)
             {
-                _Health = 0;DiedNotify?.Invoke("Player died...");StateNotify?.Invoke("Health",_Health);
+                _Health = 0; DiedNotify?.Invoke("Player died..."); StateNotify?.Invoke("Health", _Health);
             }
-            else if(value >= MaxHealth)
+            else if (value >= MaxHealth)
             {
-                _Health = MaxHealth;StateNotify?.Invoke("Health",_Health);
+                _Health = MaxHealth; StateNotify?.Invoke("Health", _Health);
             }
         }
     }
-    
+
     void Start()
     {
         Health = MaxHealth;
         StateNotify += OnStateChangedNotify;
-        StateNotify += HpRegen;
         DiedNotify += OnDied;
-
+        StartCoroutine(RegenerationHandler());
 
     }
 
@@ -70,20 +94,22 @@ IEnumerator Wait(int waitTime) {
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            TakeDamage(100.0f);
+            TakeDamage(ChangeHpValue);
         }
-        if(Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X))
         {
-            HealPlayer(100.0f);
+            HealPlayer(ChangeHpValue);
         }
+
+
 
     }
 
-    void OnStateChangedNotify(string name,float value)
+    void OnStateChangedNotify(string name, float value)
     {
-        Debug.Log("State [" + name + "]: " + value);
+        //Debug.Log("State [" + name + "]: " + value);
     }
 
     void OnDied(string message)
@@ -93,23 +119,24 @@ IEnumerator Wait(int waitTime) {
 
     public void TakeDamage(float dmg)
     {
-        Health -= dmg;
+        Health -= dmg * 100 * Time.deltaTime;
     }
-    
-    void HpRegen(string name,float value)
+
+    void HpRegen(string name, float value)
     {
-        if(!isAttacked && Health < MaxHealth && name == "Health")
+        if (!isAttacked && Health < MaxHealth && name == "Health")
         {
             //Wait(1);
             Thread.Sleep(1000);
-            Health+= MaxHealth/10;
+            Health += MaxHealth / 10;
         }
 
     }
-   
-    public void HealPlayer(float hp)
+
+    void HealPlayer(float hp)
     {
-        Health += hp;
+        Health += hp * 100 * Time.deltaTime;
     }
 
 }
+
