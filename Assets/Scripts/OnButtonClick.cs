@@ -6,10 +6,10 @@ public class OnButtonClick : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public new string name;
+    //public new string name;
     public Canvas Menu;
-    public GameObject gameLogic;
-    GameLogic gameLog;
+    //public GameObject gameLogic;
+    //GameLogic gameLog;
     bool isMenuOpened;
     void Start()
     {
@@ -28,7 +28,11 @@ public class OnButtonClick : MonoBehaviour
         if (Menu.enabled)
         {
             Menu.enabled = false;
-            //new WaitForEndOfFrame();
+            new WaitForEndOfFrame();
+        }
+        else if(!Menu.enabled)
+        {
+            Menu.enabled = true;
         }
 
     }
