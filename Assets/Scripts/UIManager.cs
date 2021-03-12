@@ -14,7 +14,8 @@ public class UIManager : MonoBehaviour
     void Start()
     {
 
-
+        Menu.enabled = false;
+        Options.enabled = false;
 
     }
 

@@ -48,3 +48,11 @@ The following packages were updated:
   com.unity.2d.animation from version 4.2.5 to 4.2.6
   com.unity.2d.psdimporter from version 3.1.5 to 3.1.6
   com.unity.2d.spriteshape from version 4.1.3 to 4.1.4
+
+=== Fri Mar 12 23:58:07 2021
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.render-pipelines.lightweight@7.4.1
