@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float WalkSpeed;
     public float RunSpeed;
+    bool moving;
 
     private float Speed;
     public float SpeedMulti;
@@ -18,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         myRigidBody = GetComponent<Rigidbody2D>(); // locate component of Rigidbody
+        moving = false;
     }
 
     void Update()
@@ -36,8 +38,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Speed = WalkSpeed;
             }
-
-            MoveCharacter();
+            moving = true;
             animator.SetFloat("moveX", change.x);
             animator.SetFloat("moveY", change.y);
             animator.SetBool("moving", true);
@@ -47,7 +48,15 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("moving", false);
+            moving = false;
         }
+    }
+
+    private void FixedUpdate() {
+        
+            if(moving)
+            MoveCharacter();
+
     }
 
     void UpdateAnimation()
@@ -59,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     {
         myRigidBody.MovePosition
         (
-            transform.position + change * Speed * SpeedMulti * Time.deltaTime
+            transform.position + change.normalized * Speed * SpeedMulti * Time.deltaTime
         );
     }
 
