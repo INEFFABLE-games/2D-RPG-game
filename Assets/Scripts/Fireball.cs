@@ -5,9 +5,10 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
 
-    public float speed;
     public float lifeTime;
     public GameObject destroyEffect;
+    public GameObject earthEffect;
+    public GameObject waterEffect;
 
     private void Start()
     {
@@ -27,6 +28,25 @@ public class Fireball : MonoBehaviour
     {
         Instantiate(destroyEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+
+            DestroyProjectile();
+        }
+        if(other.gameObject.tag == "Earth")
+        {
+            GameObject eff = Instantiate(earthEffect,transform.position, Quaternion.identity);
+            DestroyProjectile();
+        }
+        if(other.gameObject.tag == "Water")
+        {
+            GameObject eff = Instantiate(waterEffect,transform.position, Quaternion.identity);
+            DestroyProjectile();
+        }
     }
 
 }

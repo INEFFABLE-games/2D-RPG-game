@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - FxTemporaire
+  - Enemy
+  - CObject
+  - Earth
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -14,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - 
+  - Character
+  - Trees
   - 
   - 
   - 
@@ -41,6 +45,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 114170295
+    locked: 0
+  - name: Trees
+    uniqueID: 3493360289
     locked: 0
   - name: Player
     uniqueID: 3251185153

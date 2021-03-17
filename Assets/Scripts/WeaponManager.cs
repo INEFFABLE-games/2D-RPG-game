@@ -6,7 +6,7 @@ abstract public class WeaponManager : MonoBehaviour
 {
     
     public GameObject player;
-    PlayerStats playerStats;
+    CharacterStats playerStats;
     public string WeaponName;
     public string MakingResource;
     public string Affect1;
@@ -20,7 +20,7 @@ abstract public class WeaponManager : MonoBehaviour
     public float Cost;
     private void Start() {
 
-        playerStats = player.GetComponent<PlayerStats>();
+        playerStats = player.GetComponent<CharacterStats>();
 
     }
 

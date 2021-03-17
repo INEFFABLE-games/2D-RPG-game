@@ -14,8 +14,8 @@ public class UIManager : MonoBehaviour
     void Start()
     {
 
-        Menu.enabled = false;
-        Options.enabled = false;
+        //Menu.enabled = false;
+        //Options.enabled = false;
 
     }
 
@@ -51,7 +51,7 @@ public class UIManager : MonoBehaviour
     public void SetVolume(float vol)
     {
         audioMixer.SetFloat("volume",vol);
-        Debug.Log("Volume: " + vol);
+        //Debug.Log("Volume: " + vol);
     }
 
     public void FullScreenSetter(bool value)

@@ -6,7 +6,7 @@ abstract public class MagicManager : MonoBehaviour
 {
     public string MagicName;
     public float Damage;
-    public float Cost;
+    public float MoneyCost;
     public float ManaCost;
 }
 

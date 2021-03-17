@@ -8,7 +8,7 @@ public class MaybeCamera : MonoBehaviour
     
     private Camera myCamera;
     private float _cameraScale = 5;
-    private float cameraScale{get{return _cameraScale;}set{if(value > (float)3f && value < (float)10f){_cameraScale = value;Debug.Log(value);}}}
+    private float cameraScale{get{return _cameraScale;}set{if(value > (float)3f && value < (float)10f){_cameraScale = value;}}}
     void Start()
     {
     }
