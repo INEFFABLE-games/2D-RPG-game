@@ -7,8 +7,10 @@ public class CharacterStats : AbstractCharacter
 {
     public GameObject effect;
     public Sprite dead;
+    public Vector3 Resp;
+    public GameObject enemyPrefab;
 
-    IEnumerator Wait(float waitTime)
+    public IEnumerator Wait(float waitTime)
     {
         yield
         return new WaitForSeconds(waitTime);
@@ -21,6 +23,7 @@ public class CharacterStats : AbstractCharacter
         StateNotify += OnStateChangedNotify;
         DiedNotify += OnDied;
         StartCoroutine(RegenerationHandler());
+        Resp = transform.position;
     }
 
     // Update is called once per frame
@@ -80,8 +83,9 @@ public class CharacterStats : AbstractCharacter
         Debug.Log(message);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
         Instantiate(effect, transform.position, transform.rotation);
-        GameObject.Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
 
+    
 }
 
