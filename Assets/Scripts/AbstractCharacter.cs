@@ -24,6 +24,9 @@ abstract public class AbstractCharacter : MonoBehaviour
     public delegate void OnStateChanged(string name, float value);
     public event OnStateChanged StateNotify;
 
+    public string _name;
+    public string Name{get{return _name;}set{_name = value;}}
+
     public delegate void OnPlayerDied(string mes);
     public event OnPlayerDied DiedNotify;
 
@@ -43,17 +46,16 @@ abstract public class AbstractCharacter : MonoBehaviour
         }
     }
     public float _exp;
-    public float exp{get{return _exp;}set{if(value > 0){_exp = value;StateNotify?.Invoke("exp",value);}}}
+    public float exp{get{return _exp;}set{if(value >= 0){_exp = value;StateNotify?.Invoke("exp",value);}}}
     
     public float _maxExp;
-    public float maxExp{get{return _maxExp;}set{if(value > 0){_maxExp = value;}}}
+    public float maxExp{get{return _maxExp;}set{if(value >= 0){_maxExp = value;}}}
 
     public float _magicLevel;
-    public float magicLevel{get{return _magicLevel;}set{if(value > 0) _magicLevel = value;}}
+    public float magicLevel{get{return _magicLevel;}set{if(value >= 0) _magicLevel = value;}}
 
     public float _weaponDamage;
-    public float weaponDamage{get{return _weaponDamage;}set{if(value > 0)_weaponDamage = value;}}
-
+    public float weaponDamage{get{return _weaponDamage;}set{if(value >= 0)_weaponDamage = value;}}
 
     
     public float _MaxHealth;
@@ -137,13 +139,13 @@ abstract public class AbstractCharacter : MonoBehaviour
 
     public void UpdateStats()
     {
-                maxExp = Mathf.Exp(level/3)*level;
+                maxExp = 1000 + 100 * level;
                 Debug.Log("maxExp: " + maxExp);
 
-                magicLevel = Mathf.Exp(level/10)*level;
-                weaponDamage = Mathf.Exp(level/10)*level;
+                magicLevel = 25 * level;
+                weaponDamage = 25 * level;
 
-                MaxHealth = Mathf.Exp(level/5)*level;
+                MaxHealth = 100 + 75 * level;
     }
 
 }
