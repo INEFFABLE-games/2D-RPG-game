@@ -14377,8 +14377,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnlyDeactivate: 0
-  Earth: {fileID: 1462327970484030, guid: f01c1eba69de19e44b04d8d651aaac37, type: 3}
-  Water: {fileID: 100000, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
 --- !u!58 &8775268105554315450
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14392,6 +14390,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.021636724, y: 0.10726833}
+  m_Offset: {x: 0.04189253, y: 0.10726833}
   serializedVersion: 2
-  m_Radius: 3.2828686
+  m_Radius: 2.806396

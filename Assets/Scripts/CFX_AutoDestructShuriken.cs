@@ -12,22 +12,28 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 {
 	// If true, deactivate the object instead of destroying it
 	public bool OnlyDeactivate;
-	public GameObject Earth;
-	public GameObject Water;
-
 	
 	void OnEnable()
 	{
 		StartCoroutine("CheckIfAlive");
 	}
-	
+
+	IEnumerator Wait(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+    }
+
 	IEnumerator CheckIfAlive ()
 	{
 		ParticleSystem ps = this.GetComponent<ParticleSystem>();
-		
+		CircleCollider2D coll = this.gameObject.GetComponent<CircleCollider2D>();
 		while(true && ps != null)
 		{
-			yield return new WaitForSeconds(0.1f);
+			yield return new WaitForSeconds(0.2f);
+			
+			if(coll)
+			coll.enabled = false;
+
 			if(!ps.IsAlive(true))
 			{
 				if(OnlyDeactivate)
@@ -53,11 +59,9 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 			Random rnd = new Random();
 			var Player = GameObject.FindWithTag("Player");
 			float dmg = Player.GetComponent<CharacterStats>().magicLevel + UnityEngine.Random.Range(1,50);
-			other.gameObject.GetComponent<CharacterStats>().TakeDamage(dmg);
-            Debug.Log("Taked Damage: " + dmg);
+			other.gameObject.GetComponent<EnemyStats>().TakeDamage(dmg);
 
         }
-		
 
 	}
 

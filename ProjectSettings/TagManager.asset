@@ -6,9 +6,9 @@ TagManager:
   tags:
   - FxTemporaire
   - Enemy
-  - CObject
   - Earth
   - Water
+  - PlayerBar
   layers:
   - Default
   - TransparentFX

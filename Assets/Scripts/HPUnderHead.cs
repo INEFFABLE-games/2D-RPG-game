@@ -15,7 +15,11 @@ public class HPUnderHead : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        localScale.x = Character.GetComponent<CharacterStats>().Health/2000;
+        if(Character.GetComponent<CharacterStats>())
+            localScale.x = Character.GetComponent<CharacterStats>().Health/1500;
+        else if(Character.GetComponent<EnemyStats>())
+            localScale.x = Character.GetComponent<EnemyStats>().Health/1500;
+
         transform.localScale = localScale;
     }
 }

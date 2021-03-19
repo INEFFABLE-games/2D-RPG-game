@@ -7,11 +7,8 @@ using System.Collections;
 // Check is performed every 0.5 seconds to not query the particle system's state every frame.
 // (only deactivates the object if the OnlyDeactivate flag is set, automatically used with CFX Spawn System)
 
-[RequireComponent(typeof(ParticleSystem))]
 public class DestructScript : MonoBehaviour
 {
-	// If true, deactivate the object instead of destroying it
-	public bool OnlyDeactivate;
 
 	public float dealy;	
 	void OnEnable()
@@ -21,28 +18,9 @@ public class DestructScript : MonoBehaviour
 	
 	IEnumerator CheckIfAlive ()
 	{
-		ParticleSystem ps = this.GetComponent<ParticleSystem>();
-		
-		while(true && ps != null)
-		{
 			yield return new WaitForSeconds(dealy);
-			if(!ps.IsAlive(true))
-			{
-				if(OnlyDeactivate)
-				{
-					#if UNITY_3_5
-						this.gameObject.SetActiveRecursively(false);
-					#else
-						this.gameObject.SetActive(false);
-					#endif
-				}
-				else
 					GameObject.Destroy(this.gameObject);
-				break;
-			}
-		}
 	}
-
 
 
 }

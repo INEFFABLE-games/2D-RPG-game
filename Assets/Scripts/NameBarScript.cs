@@ -8,10 +8,19 @@ public class NameBarScript : MonoBehaviour
 
     public GameObject Character;
     public GameObject label;
+    uint lvl;
     private void Update()
     {
-            uint lvl = Character.GetComponent<CharacterStats>().level;
-            label.GetComponent<Text>().text = Character.name + " : " + lvl + " lvl.";
+        if (Character.GetComponent<CharacterStats>())
+        {
+            lvl = Character.GetComponent<CharacterStats>().level;
+        }
+        else if (Character.GetComponent<EnemyStats>())
+        {
+            lvl = Character.GetComponent<EnemyStats>().level;
+        }
+
+        label.GetComponent<Text>().text = Character.name + " : " + lvl + " lvl.";
     }
 
 }

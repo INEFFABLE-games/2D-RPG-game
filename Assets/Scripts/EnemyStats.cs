@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Threading;
 
-public class CharacterStats : AbstractCharacter
+public class EnemyStats : AbstractCharacter
 {
 
     List<string> enemyNames;
@@ -24,11 +24,8 @@ public class CharacterStats : AbstractCharacter
         StartCoroutine(RegenerationHandler());
         level = startLevel;
 
-        if (this.gameObject.tag == "Enemy")
-            level += (uint)Random.Range(1, 20);
-
-        name = Name;
-
+        level += (uint)Random.Range(1, 20);
+        
         enemyNames = new List<string>()
         {
             "Ruthe",
@@ -53,45 +50,23 @@ public class CharacterStats : AbstractCharacter
             "Ramon",
             "Amira"
         };
-        if (this.gameObject.tag == "Enemy")
             name = enemyNames[Random.Range(0, 20)];
     }
 
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            TakeDamage(ChangeValue);
-        }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            Heal(ChangeValue);
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            AddMana(ChangeValue);
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            AddLevel();
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            AddExp(ChangeValue);
-        }
-
     }
 
     void OnStateChangedNotify(string name, float value)
     {
-        var text = Instantiate(expText, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
-        text.transform.SetParent(GameObject.FindGameObjectWithTag("PlayerBar").transform);
+            var text = Instantiate(expText, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+            text.transform.SetParent(GameObject.FindGameObjectWithTag("PlayerBar").transform);
 
         if (name == "exp")
         {
 
-            text.GetComponent<Text>().text = value + " " + name;
+            text.GetComponent<Text>().text = "+" + value + " " + name;
             text.transform.position = transform.position + new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
             text.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
 
@@ -102,20 +77,20 @@ public class CharacterStats : AbstractCharacter
                 UpdateStats();
             }
         }
-        else if (name == "health")
+        if (name == "health" )
         {
-
-            if (value >= 0)
+            
+            if(value >= 0)
             {
-                text.GetComponent<Text>().text = value + "hp";
+                text.GetComponent<Text>().text = + value + "hp";
                 text.transform.position = transform.position + new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
                 text.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
                 text.GetComponent<Text>().color = Color.green;
-
+                
             }
-            else if (value < 0)
+            else if(value < 0)
             {
-                text.GetComponent<Text>().text = value + "hp";
+                text.GetComponent<Text>().text = + value + "hp";
                 text.transform.position = transform.position + new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
                 text.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
                 text.GetComponent<Text>().color = Color.red;
@@ -145,30 +120,25 @@ public class CharacterStats : AbstractCharacter
 
     }
 
-    void AddLevel()
-    {
-        this.level++;
-        UpdateStats();
-    }
-
-    void AddExp(float val)
-    {
-        this.exp += val;
-    }
-
     void OnDied(string message)
     {
         Debug.Log(message);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
         Instantiate(effect, transform.position, transform.rotation);
+        
+            var plrStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>();
+            plrStats.exp += 100 * (10 + this.level - plrStats.level) / (10 + plrStats.level);
+            Respawn();
 
-        Respawn();
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
     }
 
     public override void Respawn()
     {
+        Wait(10.0f);
+        GameObject newenemy = Instantiate(this.gameObject, new Vector3(Random.Range(-5, 5), Random.Range(-5, 5)), transform.rotation);
 
+        Debug.Log("respawned");
     }
 
 }

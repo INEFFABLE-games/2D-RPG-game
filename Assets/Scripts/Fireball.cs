@@ -14,12 +14,12 @@ public class Fireball : MonoBehaviour
     {
 
         Invoke("DestroyProjectile", lifeTime);
-        
-    }    
 
-    private void Update() 
+    }
+
+    private void Update()
     {
-        
+
         //transform.Translate(transform.up * speed * Time.deltaTime);
 
     }
@@ -32,21 +32,25 @@ public class Fireball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag != "Player")
         {
+            if (other.gameObject.tag == "Enemy")
+            {
 
-            DestroyProjectile();
+            }
+            if (other.gameObject.tag == "Earth")
+            {
+                GameObject eff = Instantiate(earthEffect, transform.position, Quaternion.identity);
+            }
+            if (other.gameObject.tag == "Water")
+            {
+                GameObject eff = Instantiate(waterEffect, transform.position, Quaternion.identity);
+            }
+                DestroyProjectile();
+
         }
-        if(other.gameObject.tag == "Earth")
-        {
-            GameObject eff = Instantiate(earthEffect,transform.position, Quaternion.identity);
-            DestroyProjectile();
-        }
-        if(other.gameObject.tag == "Water")
-        {
-            GameObject eff = Instantiate(waterEffect,transform.position, Quaternion.identity);
-            DestroyProjectile();
-        }
+
+
     }
 
 }

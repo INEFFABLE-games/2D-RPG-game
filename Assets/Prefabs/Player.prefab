@@ -199,8 +199,8 @@ MonoBehaviour:
   effect: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
   dead: {fileID: 122268285079091143, guid: 4c0c767fd1a4d9f4f915ea7e9799c8bb, type: 3}
   respawnPoint: {x: 0, y: 0, z: 0}
-  startLevel: 20
-  expText: {fileID: 0}
+  startLevel: 5
+  expText: {fileID: 940741810609655334, guid: 5fe12d331b7aaf94a9415b9173be51c3, type: 3}
 --- !u!114 &7538561147025836189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +224,18 @@ PrefabInstance:
     - target: {fileID: 2688270253043451666, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
       propertyPath: m_Name
       value: NameBAr
+      objectReference: {fileID: 0}
+    - target: {fileID: 2688270253043451666, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878571262307020062, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878571262307020062, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 114170295
       objectReference: {fileID: 0}
     - target: {fileID: 5920548517190174886, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
       propertyPath: m_Pivot.x
@@ -309,11 +321,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6929053544439505110, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
+      propertyPath: label
+      value: 
+      objectReference: {fileID: 3136836015242392920}
+    - target: {fileID: 6929053544439505110, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
+      propertyPath: Character
+      value: 
+      objectReference: {fileID: 7538561147025836186}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
 --- !u!224 &5922234919879230429 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5920548517190174886, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
+  m_PrefabInstance: {fileID: 7321417230502779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3136836015242392920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3139648264386280995, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
   m_PrefabInstance: {fileID: 7321417230502779}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7538561147262804123
@@ -326,6 +351,14 @@ PrefabInstance:
     - target: {fileID: 2806039539929930790, guid: fdd6bee7f08b73b4eaaebbfcbb8b600a, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233061152505948589, guid: fdd6bee7f08b73b4eaaebbfcbb8b600a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233061152505948589, guid: fdd6bee7f08b73b4eaaebbfcbb8b600a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 114170295
       objectReference: {fileID: 0}
     - target: {fileID: 6516007911457658852, guid: fdd6bee7f08b73b4eaaebbfcbb8b600a, type: 3}
       propertyPath: m_RootOrder

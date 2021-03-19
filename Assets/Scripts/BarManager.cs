@@ -23,13 +23,13 @@ public class BarManager : MonoBehaviour
             
     }
 
-    public virtual void FillChange(string name,float value)
+    public virtual void FillChange(string name,float value,bool IncDeg)
     {
         if(ValueTakeName == "Mana" && name == ValueTakeName)
         {
             filler.fillAmount = (playerStats.mana / playerStats.maxMana);
         }
-        if(ValueTakeName == "Health" && name == ValueTakeName)
+        if(ValueTakeName == "health" && name == ValueTakeName)
         {
             filler.fillAmount = (playerStats.Health / playerStats.MaxHealth);
         }
