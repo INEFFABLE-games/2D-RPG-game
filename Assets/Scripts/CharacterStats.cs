@@ -83,7 +83,7 @@ public class CharacterStats : AbstractCharacter
 
     }
 
-    void OnStateChangedNotify(string name, float value)
+    void OnStateChangedNotify(string name, float value,float fval)
     {
         var text = Instantiate(expText, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
         text.transform.SetParent(GameObject.FindGameObjectWithTag("PlayerBar").transform);
@@ -95,12 +95,12 @@ public class CharacterStats : AbstractCharacter
             text.transform.position = transform.position + new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
             text.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
 
-            if (value >= this.maxExp)
-            {
-                this._level++;
-                this.exp = 0;
-                UpdateStats();
-            }
+            // if (fval >= this.maxExp)
+            // {
+            //     // this._level++;
+            //     // this.exp = fval - exp;
+            //     UpdateStats();
+            // }
         }
         else if (name == "health")
         {
@@ -122,7 +122,7 @@ public class CharacterStats : AbstractCharacter
 
             }
         }
-        if (name == "mana" )
+        else if (name == "mana" )
         {
             
             if(value >= 0)
@@ -139,7 +139,6 @@ public class CharacterStats : AbstractCharacter
                 text.transform.position = transform.position + new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
                 text.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
                 text.GetComponent<Text>().color = Color.blue;
-
             }
         }
 

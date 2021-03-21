@@ -58,25 +58,11 @@ public class EnemyStats : AbstractCharacter
 
     }
 
-    void OnStateChangedNotify(string name, float value)
+    void OnStateChangedNotify(string name, float value,float fval)
     {
             var text = Instantiate(expText, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
             text.transform.SetParent(GameObject.FindGameObjectWithTag("PlayerBar").transform);
 
-        if (name == "exp")
-        {
-
-            text.GetComponent<Text>().text = "+" + value + " " + name;
-            text.transform.position = transform.position + new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
-            text.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
-
-            if (value >= this.maxExp)
-            {
-                this._level++;
-                this.exp = 0;
-                UpdateStats();
-            }
-        }
         if (name == "health" )
         {
             
@@ -94,26 +80,6 @@ public class EnemyStats : AbstractCharacter
                 text.transform.position = transform.position + new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
                 text.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
                 text.GetComponent<Text>().color = Color.red;
-
-            }
-        }
-        if (name == "mana" )
-        {
-            
-            if(value >= 0)
-            {
-                text.GetComponent<Text>().text = + value + "mp";
-                text.transform.position = transform.position + new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
-                text.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
-                text.GetComponent<Text>().color = Color.blue;
-                
-            }
-            else if(value < 0)
-            {
-                text.GetComponent<Text>().text = + value + "mp";
-                text.transform.position = transform.position + new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
-                text.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
-                text.GetComponent<Text>().color = Color.blue;
 
             }
         }

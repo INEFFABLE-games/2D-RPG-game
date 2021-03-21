@@ -22,10 +22,7 @@ abstract public class AbstractCharacter : MonoBehaviour
         return new WaitForSeconds(waitTime);
     }
 
-    public delegate void OnStateChanged(string name, float value, bool IncDeg);
-    public event OnStateChanged StateNotify;
-
-    public delegate void OnGeneralStateChanged(string name, float value);
+    public delegate void OnGeneralStateChanged(string name, float value,float fval);
     public event OnGeneralStateChanged GenNotify;
 
     public string _name;
@@ -59,17 +56,20 @@ abstract public class AbstractCharacter : MonoBehaviour
         {
             if (value >= 0)
             {
-                if (value > _exp)
+                if (value > _maxExp)
                 {
-                    //StateNotify?.Invoke("exp", value, true);
-                    GenNotify?.Invoke("exp", value - _exp);
+                    GenNotify?.Invoke("exp", value - _exp,value);
+                    _exp = value - _maxExp;
+                    level++;
+                    UpdateStats();
                     
                 }
-                else if (value < _exp)
-                    //StateNotify?.Invoke("exp", value, false);
-                    GenNotify?.Invoke("exp", value - _exp);
+                else if (value < _maxExp)
+                {
+                    GenNotify?.Invoke("exp", value - _exp,value);
+                    _exp = value;
+                }
 
-                _exp = value;
             }
         }
     }
@@ -103,12 +103,10 @@ abstract public class AbstractCharacter : MonoBehaviour
             {
                 if (value > _Health)
                 {
-                    StateNotify?.Invoke("health", value, true);
-                    GenNotify?.Invoke("health", value - _Health);
+                    GenNotify?.Invoke("health", value - _Health,value);
                 }
                 else if (value < _Health)
-                    StateNotify?.Invoke("health", value, false);
-                    GenNotify?.Invoke("health", value - _Health);
+                    GenNotify?.Invoke("health", value - _Health,value);
 
 
                 _Health = value;
@@ -117,14 +115,12 @@ abstract public class AbstractCharacter : MonoBehaviour
             {
                 if (value > _Health)
                 {
-                    StateNotify?.Invoke("health", value, true);
-                    GenNotify?.Invoke("health", value - _Health);
+                    GenNotify?.Invoke("health", value - _Health,value);
                     
                 }
                 else if (value < _Health)
                 {
-                    StateNotify?.Invoke("health", value, false);
-                    GenNotify?.Invoke("health", value - _Health);
+                    GenNotify?.Invoke("health", value - _Health,value);
                 }   
 
 
@@ -134,14 +130,12 @@ abstract public class AbstractCharacter : MonoBehaviour
             {
                 if (value > _Health)
                 {
-                    StateNotify?.Invoke("health", value, true);
-                    GenNotify?.Invoke("health", value - _Health);
+                    GenNotify?.Invoke("health", value - _Health,value);
 
                 }
                 else if (value < _Health)
                 {
-                    StateNotify?.Invoke("health", value, false);
-                    GenNotify?.Invoke("health", value - _Health);
+                    GenNotify?.Invoke("health", value - _Health, value);
                 }
 
                     
@@ -160,20 +154,20 @@ abstract public class AbstractCharacter : MonoBehaviour
         {
             if (value > 0 && value < maxMana)
             {
-                _mana = value; StateNotify?.Invoke("Mana", _mana,true);
-                    GenNotify?.Invoke("mana", value - _mana);
+                _mana = value; 
+                GenNotify?.Invoke("mana", value - _mana, value);
 
             }
             else if (value <= 0)
             {
-                _mana = 0; StateNotify?.Invoke("Mana", _mana,true);
-                GenNotify?.Invoke("mana", value - _mana);
+                _mana = 0; 
+                GenNotify?.Invoke("mana", value - _mana, value);
 
             }
-            else if (value >= MaxHealth)
+            else if (value >= maxMana)
             {
-                _mana = maxMana; StateNotify?.Invoke("Mana", _mana,true);
-                    GenNotify?.Invoke("mana", value - _mana);
+                _mana = maxMana; 
+                GenNotify?.Invoke("mana", value - _mana, value);
 
             }
         }
@@ -186,7 +180,8 @@ abstract public class AbstractCharacter : MonoBehaviour
         }
         set
         {
-            if (value > 0) _MaxHealth = value; StateNotify?.Invoke("MaxHealth", value,true);
+            if (value > 0) _MaxHealth = value; 
+            GenNotify?.Invoke("MaxHealth",value - _MaxHealth,value);
         }
     }
 

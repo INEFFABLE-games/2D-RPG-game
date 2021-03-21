@@ -54,6 +54,11 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 	private void OnCollisionEnter2D(Collision2D other) 
 	{
 		
+		if(other.gameObject.tag == "Destructable")
+		{
+			Debug.Log("XУЙ");
+			other.gameObject.GetComponent<DestructScriptWithDemolition>().DestructFunc();
+		}
 		if (other.gameObject.tag == "Enemy")
         {
 			Random rnd = new Random();

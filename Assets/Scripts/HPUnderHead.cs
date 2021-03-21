@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class HPUnderHead : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject Character;
     Vector3 localScale;
     void Start()
     {
         localScale = transform.localScale;
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Character.GetComponent<CharacterStats>())
@@ -22,4 +21,5 @@ public class HPUnderHead : MonoBehaviour
 
         transform.localScale = localScale;
     }
+
 }

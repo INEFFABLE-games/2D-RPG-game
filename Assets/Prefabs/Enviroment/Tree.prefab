@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 2451281147903883759}
   - component: {fileID: 7273708914872516331}
   - component: {fileID: 2533492780692659791}
+  - component: {fileID: 6522624370357882280}
   m_Layer: 9
   m_Name: Tree
-  m_TagString: Untagged
+  m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 4345250777452531768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 8.23, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -185,3 +186,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.39624807, y: 0.19620699}
   m_EdgeRadius: 0
+--- !u!114 &6522624370357882280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4345250777452531768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff684821e5720140aecb640097ad259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respdealy: 1
+  destdealy: 1

@@ -39508,8 +39508,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -770304271
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -43319,7 +43319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7538561147025836188, guid: 8babd3d5d85833d42859e6c1f46db4f7, type: 3}
       propertyPath: ChangeValue
-      value: 123
+      value: 321
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8babd3d5d85833d42859e6c1f46db4f7, type: 3}
@@ -46940,7 +46940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plr: {fileID: 1209706774}
-  ValueTakeName: Mana
+  ValueTakeName: mana
 --- !u!1 &4926117315159438953
 GameObject:
   m_ObjectHideFlags: 0
@@ -48366,7 +48366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plr: {fileID: 1209706774}
-  ValueTakeName: Health
+  ValueTakeName: health
 --- !u!1 &6050176124956487015
 GameObject:
   m_ObjectHideFlags: 0

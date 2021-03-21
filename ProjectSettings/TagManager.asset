@@ -9,6 +9,7 @@ TagManager:
   - Earth
   - Water
   - PlayerBar
+  - Destructable
   layers:
   - Default
   - TransparentFX

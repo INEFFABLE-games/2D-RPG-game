@@ -14,7 +14,7 @@ public class BarManager : MonoBehaviour
     {
         filler = GetComponent<Image>();
         playerStats = plr.GetComponent<CharacterStats>();
-        playerStats.StateNotify += FillChange;
+        playerStats.GenNotify += FillChange;
 
     }
 
@@ -23,13 +23,13 @@ public class BarManager : MonoBehaviour
             
     }
 
-    public virtual void FillChange(string name,float value,bool IncDeg)
+    public virtual void FillChange(string name,float value,float fval)
     {
-        if(ValueTakeName == "Mana" && name == ValueTakeName)
+        if(name == "mana" && ValueTakeName == "mana")
         {
             filler.fillAmount = (playerStats.mana / playerStats.maxMana);
         }
-        if(ValueTakeName == "health" && name == ValueTakeName)
+        if(name == "health" && ValueTakeName == "health")
         {
             filler.fillAmount = (playerStats.Health / playerStats.MaxHealth);
         }
