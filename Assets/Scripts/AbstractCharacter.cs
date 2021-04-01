@@ -154,20 +154,20 @@ abstract public class AbstractCharacter : MonoBehaviour
         {
             if (value > 0 && value < maxMana)
             {
-                _mana = value; 
                 GenNotify?.Invoke("mana", value - _mana, value);
+                _mana = value; 
 
             }
             else if (value <= 0)
             {
-                _mana = 0; 
                 GenNotify?.Invoke("mana", value - _mana, value);
+                _mana = 0; 
 
             }
             else if (value >= maxMana)
             {
-                _mana = maxMana; 
                 GenNotify?.Invoke("mana", value - _mana, value);
+                _mana = maxMana; 
 
             }
         }

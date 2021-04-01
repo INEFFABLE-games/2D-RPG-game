@@ -36,7 +36,7 @@ Transform:
   m_Children:
   - {fileID: 7538561148352977574}
   - {fileID: 3671519739726313343}
-  - {fileID: 5922234919879230429}
+  - {fileID: 8547293120110326234}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -152,7 +152,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkSpeed: 15
   RunSpeed: 20
+  DashManaCost: 0
   SpeedMulti: 1
+  canMove: 0
 --- !u!95 &7538561147025836191
 Animator:
   serializedVersion: 3
@@ -214,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CursorNew: {fileID: 8727336317644550581, guid: 711b4cc820e1ca64f806204819e34be6, type: 3}
---- !u!1001 &7321417230502779
+--- !u!1001 &2644763399762147708
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -224,18 +226,6 @@ PrefabInstance:
     - target: {fileID: 2688270253043451666, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
       propertyPath: m_Name
       value: NameBAr
-      objectReference: {fileID: 0}
-    - target: {fileID: 2688270253043451666, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 4878571262307020062, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
-      propertyPath: m_RenderMode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4878571262307020062, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 114170295
       objectReference: {fileID: 0}
     - target: {fileID: 5920548517190174886, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
       propertyPath: m_Pivot.x
@@ -324,22 +314,22 @@ PrefabInstance:
     - target: {fileID: 6929053544439505110, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
       propertyPath: label
       value: 
-      objectReference: {fileID: 3136836015242392920}
+      objectReference: {fileID: 1091651470734690143}
     - target: {fileID: 6929053544439505110, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
       propertyPath: Character
       value: 
       objectReference: {fileID: 7538561147025836186}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
---- !u!224 &5922234919879230429 stripped
+--- !u!224 &8547293120110326234 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5920548517190174886, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
-  m_PrefabInstance: {fileID: 7321417230502779}
+  m_PrefabInstance: {fileID: 2644763399762147708}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3136836015242392920 stripped
+--- !u!1 &1091651470734690143 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3139648264386280995, guid: 2546d44b81fef4040b2eda1aaeb466a4, type: 3}
-  m_PrefabInstance: {fileID: 7321417230502779}
+  m_PrefabInstance: {fileID: 2644763399762147708}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7538561147262804123
 PrefabInstance:

@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 1281550710154210900}
   - component: {fileID: 1281550710154210901}
   m_Layer: 8
-  m_Name: magic
+  m_Name: magicFireball
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   ManaCost: 150
   offset: 0
   projectile: {fileID: 3045172962014820836, guid: 0b9b6fc4b7c8116488b8d05afa891b9f, type: 3}
-  projSpeed: 12
+  projSpeed: 15
   shotPoint: {fileID: 1281550710530135352}
   DebounceTime: 1
   timeBtwCast: 1

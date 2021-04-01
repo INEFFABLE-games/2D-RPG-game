@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 435042844665625004}
   - component: {fileID: 8204790800819819745}
   - component: {fileID: 6929053544439505110}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: NameBAr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ Canvas:
   m_GameObject: {fileID: 2688270253043451666}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 67085062571998787}
   - component: {fileID: 7842567174833984078}
   - component: {fileID: 6678501157214426049}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
