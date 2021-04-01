@@ -152,9 +152,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkSpeed: 15
   RunSpeed: 20
-  DashManaCost: 0
+  DashManaCost: 150
   SpeedMulti: 1
   canMove: 0
+  regenEffect: {fileID: 100000, guid: 3d4907e6bd39f474b8fd8220920e65c4, type: 3}
 --- !u!95 &7538561147025836191
 Animator:
   serializedVersion: 3
