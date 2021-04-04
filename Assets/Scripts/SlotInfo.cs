@@ -30,11 +30,6 @@ public class SlotInfo : MonoBehaviour
     public void DropItem()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().RemoveItem(itemID);
-        gameObject.GetComponent<Image>().sprite = null;
-        itemText = "";
-        gameObject.name = "Empty";
-        itemID = 0;
-
     }
 
 }
