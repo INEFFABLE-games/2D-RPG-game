@@ -16,6 +16,15 @@ public class AbstractItem : MonoBehaviour
         Mythic
     }
 
+    public enum Type
+    {
+        Equipttable = 1,
+        Usable,
+        Nothing
+    }
+
+    [SerializeField]
+    public bool equipped;
     [SerializeField]
     string _itemName;
 
@@ -27,13 +36,16 @@ public class AbstractItem : MonoBehaviour
     [SerializeField]
     int _Rarity;
 
+    [SerializeField]
+    string _itemType;
+
     public string Description;
 
     public uint Amount{get{return _Amount;}set{_Amount = value;AmountNotify?.Invoke(value);}}
     public uint Cost{get{return _Cost;}set{_Cost = value;}}
     public int Rarity{get{return _Rarity;}set{_Rarity = value;}} 
     public string itemName{get{return _itemName;}set{_itemName = value;}}
+    public string itemType{get{return _itemType;}set{_itemType = value;}}
     
-
 
 }

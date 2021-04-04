@@ -13,8 +13,10 @@ public class Coins : AbstractItem
 
         AmountNotify += ChangeText;
         Cost = 1;
+        itemType = Type.Nothing.ToString();
         Rarity = (int)Rares.Uncommon;
-        itemName = "Coins (" + Amount + ")";
+        gameObject.name = itemName;
+        itemName = gameObject.name + " (" + Amount + ")";
         transform.GetChild(0).GetChild(0).GetComponent<Text>().text = itemName;
 
         ChangeTextColor();
@@ -61,7 +63,7 @@ public class Coins : AbstractItem
 
     void ChangeText(uint value)
     {
-        itemName = "Coins (" + Amount + ")";
+        itemName = gameObject.name + " (" + Amount + ")";
         transform.GetChild(0).GetChild(0).GetComponent<Text>().text = itemName;
     }
 

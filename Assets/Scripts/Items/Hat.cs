@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class RareCoins : AbstractItem
+public class Hat : AbstractItem
 {
 
     Color textclr;
+
+    public bool isEuipped;
 
     private void Start()
     {
 
         AmountNotify += ChangeText;
-        Cost = 1;
-        itemType = Type.Nothing.ToString();
-        Rarity = (int)Rares.Mythic;
+        Cost = 200;
+        isEuipped = false;
+        itemType = Type.Equipttable.ToString();
+        //Rarity = (int)Rares.Common;
         gameObject.name = itemName;
         itemName = gameObject.name + " (" + Amount + ")";
         transform.GetChild(0).GetChild(0).GetComponent<Text>().text = itemName;
 
         ChangeTextColor();
-
-        //Description = "Just a coin";
 
     }
 
@@ -63,7 +64,7 @@ public class RareCoins : AbstractItem
 
     void ChangeText(uint value)
     {
-        itemName = gameObject.name + "(" + Amount + ")";
+        itemName = gameObject.name + " (" + Amount + ")";
         transform.GetChild(0).GetChild(0).GetComponent<Text>().text = itemName;
     }
 
