@@ -56,3 +56,11 @@ Update Mode: mergeDefaultDependencies
 
 The following packages were added:
   com.unity.render-pipelines.lightweight@7.4.1
+
+=== Sun Apr  4 02:07:53 2021
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.postprocessing@2.3.0

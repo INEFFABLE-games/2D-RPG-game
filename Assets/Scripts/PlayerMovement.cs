@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float SpeedMulti;
     public bool canMove;
     public GameObject regenEffect;
+    public GameObject DashEffect;
     bool moving;
 
     private float Speed;
@@ -29,14 +30,18 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Dash()
     {
-        gameObject.transform.GetComponent<CharacterStats>().mana -= DashManaCost;
-        canMove = false;
-        posMulti = 10f;
-        yield return new WaitForSeconds(.01f);
-        posMulti = 1f;
-        yield return new WaitForSeconds(.5f);
-        CanDash = true;
-        yield break;
+        if (gameObject.transform.GetComponent<CharacterStats>().mana >= DashManaCost)
+        {
+            gameObject.transform.GetComponent<CharacterStats>().mana -= DashManaCost;
+            Instantiate(DashEffect, transform.position, transform.rotation);
+            canMove = false;
+            posMulti = 10f;
+            yield return new WaitForSeconds(.01f);
+            posMulti = 1f;
+            yield return new WaitForSeconds(.5f);
+        }
+            CanDash = true;
+            yield break;
     }
 
     IEnumerator ManaRegen()

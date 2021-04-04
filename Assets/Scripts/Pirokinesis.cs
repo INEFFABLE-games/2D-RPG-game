@@ -28,7 +28,7 @@ public class Pirokinesis : MagicManager
 
         if (timeBtwCast <= 0)
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetMouseButtonDown(0))
             {
                 timeBtwCast = DebounceTime;
                 if(Player.GetComponent<CharacterStats>().mana - ManaCost >= 0)

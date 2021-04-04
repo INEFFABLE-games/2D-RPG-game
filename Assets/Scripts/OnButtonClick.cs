@@ -4,35 +4,21 @@ using UnityEngine;
 
 public class OnButtonClick : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    //public new string name;
-    public Canvas Menu;
-    //public GameObject gameLogic;
-    //GameLogic gameLog;
+ 
+    public GameObject Menu;
+   
     bool isMenuOpened;
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void MyButtonAction()
     {
 
-        if (Menu.enabled)
+        if (Menu.activeSelf)
         {
-            Menu.enabled = false;
-            new WaitForEndOfFrame();
+            Menu.SetActive(false);
         }
-        else if(!Menu.enabled)
+        else if(!Menu.activeSelf)
         {
-            Menu.enabled = true;
+            Menu.SetActive(true);
         }
 
     }

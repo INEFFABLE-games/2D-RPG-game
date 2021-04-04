@@ -11,6 +11,8 @@ TagManager:
   - PlayerBar
   - Destructable
   - InventoryItem
+  - ItemsFolder
+  - DropItemButton
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,9 @@ public class UIManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public Canvas Menu;
+    public GameObject Menu;
+
+    public GameObject Inv;
     public Canvas Options;
     public AudioMixer audioMixer;
     void Start()
@@ -27,24 +29,22 @@ public class UIManager : MonoBehaviour
         {
             ESCPressed();
         }
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            OpenInventory();
+        }
 
     }
 
     public void ESCPressed()
     {
-        if (!Menu.enabled)
+        if(Menu.activeSelf)
         {
-            Menu.enabled = true;
-            new WaitForEndOfFrame();
+            Menu.SetActive(false);
         }
-        else if (Menu.enabled)
+        else if(!Menu.activeSelf)
         {
-            if(Options.enabled)
-            Options.enabled = false;
-
-            Menu.enabled = false;
-
-            new WaitForEndOfFrame();
+            Menu.SetActive(true);
         }
     }
 
@@ -59,5 +59,16 @@ public class UIManager : MonoBehaviour
         Screen.fullScreen = value;
     }
 
+    void OpenInventory()
+    {
+        if(Inv.activeSelf)
+        {
+            Inv.SetActive(false);
+        }
+        else if(!Inv.activeSelf)
+        {
+            Inv.SetActive(true);
+        }
+    }
 
 }

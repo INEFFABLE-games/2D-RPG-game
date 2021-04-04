@@ -15,6 +15,8 @@ public class EnemyStats : AbstractCharacter
     public uint startLevel;
     public GameObject expText;
 
+    public GameObject moneyDrop;
+
     void Start()
     {
         UpdateStats();
@@ -25,7 +27,7 @@ public class EnemyStats : AbstractCharacter
         level = startLevel;
 
         level += (uint)Random.Range(1, 20);
-        
+
         enemyNames = new List<string>()
         {
             "Ruthe",
@@ -50,7 +52,7 @@ public class EnemyStats : AbstractCharacter
             "Ramon",
             "Amira"
         };
-            name = enemyNames[Random.Range(0, 20)];
+        name = enemyNames[Random.Range(0, 20)];
     }
 
     void Update()
@@ -58,25 +60,25 @@ public class EnemyStats : AbstractCharacter
 
     }
 
-    void OnStateChangedNotify(string name, float value,float fval)
+    void OnStateChangedNotify(string name, float value, float fval)
     {
-            var text = Instantiate(expText, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
-            text.transform.SetParent(GameObject.FindGameObjectWithTag("PlayerBar").transform);
+        var text = Instantiate(expText, new Vector3(0, 0, 0), new Quaternion(0, 0, 0, 0));
+        text.transform.SetParent(GameObject.FindGameObjectWithTag("PlayerBar").transform);
 
-        if (name == "health" )
+        if (name == "health")
         {
-            
-            if(value >= 0)
+
+            if (value >= 0)
             {
-                text.GetComponent<Text>().text = + value + "hp";
+                text.GetComponent<Text>().text = +value + "hp";
                 text.transform.position = transform.position + new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
                 text.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
                 text.GetComponent<Text>().color = Color.green;
-                
+
             }
-            else if(value < 0)
+            else if (value < 0)
             {
-                text.GetComponent<Text>().text = + value + "hp";
+                text.GetComponent<Text>().text = +value + "hp";
                 text.transform.position = transform.position + new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
                 text.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
                 text.GetComponent<Text>().color = Color.red;
@@ -91,10 +93,16 @@ public class EnemyStats : AbstractCharacter
         Debug.Log(message);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
         Instantiate(effect, transform.position, transform.rotation);
-        
-            var plrStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>();
-            plrStats.exp += 100 * (10 + this.level - plrStats.level) / (10 + plrStats.level);
-            Respawn();
+
+        var plrStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>();
+        plrStats.exp += 100 * (10 + this.level - plrStats.level) / (10 + plrStats.level);
+        Respawn();
+
+        if (Random.Range(1, 5) == 1)
+        {
+            GameObject money = Instantiate(moneyDrop, transform.position, transform.rotation);
+            money.GetComponent<AbstractItem>().Amount = (uint)Random.Range(1, Mathf.Abs(Mathf.Sqrt(level) * 10));
+        }
 
         Destroy(this.gameObject);
     }
