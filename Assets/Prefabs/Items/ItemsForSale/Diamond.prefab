@@ -190,7 +190,6 @@ GameObject:
   - component: {fileID: 3445946054620559520}
   - component: {fileID: 3445946054620559522}
   - component: {fileID: 3445946054620559527}
-  - component: {fileID: 3445946054620559523}
   - component: {fileID: 6880443259289901750}
   m_Layer: 0
   m_Name: Diamond
@@ -281,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3f29522740e8b4abd1359a2bade3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpText: {fileID: 0}
+  pickUpText: {fileID: 3445946052971354149}
 --- !u!58 &3445946054620559527
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -298,19 +297,6 @@ CircleCollider2D:
   m_Offset: {x: 0.040639438, y: -0.10594368}
   serializedVersion: 2
   m_Radius: 1.8746982
---- !u!114 &3445946054620559523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3445946054620559526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be3f29522740e8b4abd1359a2bade3a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickUpText: {fileID: 3445946052971354149}
 --- !u!114 &6880443259289901750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,10 +309,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2d1b162b31f9240bfac180e3f02460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipped: 0
   _itemName: Diamond
   _Amount: 1
   _Cost: 35
   _Rarity: 3
+  _itemType: 
   Description: A precious diamond that looks quite rare and shines brightly in the
     sun.
 --- !u!1 &5251844342279988778

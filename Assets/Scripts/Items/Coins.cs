@@ -67,4 +67,12 @@ public class Coins : AbstractItem
         transform.GetChild(0).GetChild(0).GetComponent<Text>().text = itemName;
     }
 
+    public override void EnableItemEffect()
+    {
+    }
+
+    public override void DisableItemEffect()
+    {
+    }
+
 }

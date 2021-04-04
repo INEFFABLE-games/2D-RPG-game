@@ -44,18 +44,12 @@ public class PickUp : MonoBehaviour
 
     private void PickItUp()
     {
-        if(GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().Items.Count > 0)
-        {
-            Debug.Log(GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().Items.Any(x => x.name.Contains(gameObject.name)));
-        }
+        // if(GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().Items.Count > 0)
+        // {
+        //     Debug.Log(GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().Items.Any(x => x.name.Contains(gameObject.name)));
+        // }
         
-        if(GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().Items.Any(x => x.name.Contains(gameObject.name)))
-        {
-            GameObject obj = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().Items.First(x => x.name.Contains(gameObject.name));
-            obj.GetComponent<AbstractItem>().Amount += gameObject.GetComponent<AbstractItem>().Amount;
-            GameObject.Destroy(gameObject);
-        }
-        else
+        
         GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().AddItem(gameObject);
 
         //Destroy(gameObject);

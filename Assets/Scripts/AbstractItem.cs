@@ -7,6 +7,13 @@ public class AbstractItem : MonoBehaviour
     protected delegate void AmountChange(uint value);
     protected event AmountChange AmountNotify;
 
+    public float multiArmor;
+    public float multiMagicDamage;
+    public float multiSpeed;
+    public float multiWeaponDamage;
+
+    
+
     public enum Rares
     {
         Common = 1,
@@ -46,6 +53,10 @@ public class AbstractItem : MonoBehaviour
     public int Rarity{get{return _Rarity;}set{_Rarity = value;}} 
     public string itemName{get{return _itemName;}set{_itemName = value;}}
     public string itemType{get{return _itemType;}set{_itemType = value;}}
+
+    public virtual void EnableItemEffect(){}
+
+    public virtual void DisableItemEffect(){}
     
 
 }

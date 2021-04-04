@@ -79,11 +79,21 @@ public class InventoryUI : MonoBehaviour
     public void AddItem(GameObject item)
     {
 
-        GameObject PickedItem = item;
-        //Items.Add(item);
-        PickedItem.transform.SetParent(GameObject.FindGameObjectWithTag("ItemsFolder").transform);
-        PickedItem.transform.position = GameObject.FindGameObjectWithTag("ItemsFolder").transform.position;
-        //PickedItem.SetActive(false);
+        if (Items.Any(x => x.name.Contains(item.name)))
+        {
+            GameObject obj = Items.First(x => x.name.Contains(item.name));
+            obj.GetComponent<AbstractItem>().Amount += gameObject.GetComponent<AbstractItem>().Amount;
+            GameObject.Destroy(item);
+        }
+        else
+        {
+            //Debug.Log("Dont Contains");
+            GameObject PickedItem = item;
+            //Items.Add(item);
+            PickedItem.transform.SetParent(GameObject.FindGameObjectWithTag("ItemsFolder").transform);
+            PickedItem.transform.position = GameObject.FindGameObjectWithTag("ItemsFolder").transform.position;
+            //PickedItem.SetActive(false);
+        }
 
         //SlotsUpdate();
         UpdateInventorySlots();
@@ -143,7 +153,6 @@ public class InventoryUI : MonoBehaviour
 
     void ClearAllSlots()
     {
-        Debug.Log(Slots.Count);
 
         for (int i = 0; i < AMOUNT_OF_SLOTS; i++)
         {
@@ -161,27 +170,36 @@ public class InventoryUI : MonoBehaviour
     {
         if (itemId != null && itemId.GetComponent<AbstractItem>().itemType == "Equipttable")
         {
+            AbstractItem itemscpt = itemId.GetComponent<AbstractItem>();
 
-            if (!itemId.GetComponent<AbstractItem>().equipped)
+            if (!itemscpt.equipped && equippedSlots.Any(x => x.GetComponent<SlotInfo>().item == null))
             {
 
-                if (itemId.name.Contains("Hat"))
+                if (itemId.name.Contains("Hat") || itemId.name.Contains("Crown"))
                 {
-                    itemId.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + new Vector3(0, 0.6f, 0);
+                    itemId.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + new Vector3(0, 0.65f, 0);
                 }
-                itemId.GetComponent<AbstractItem>().equipped = true;
+                else if (itemId.name.Contains("Ring") || itemId.name.Contains("Essence"))
+                {
+                    itemId.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + new Vector3(0, 0, 0);
+                }
+
+
+                itemscpt.equipped = true;
+                itemscpt.EnableItemEffect();
                 itemId.transform.SetParent(GameObject.FindGameObjectWithTag("EquippedItems").gameObject.transform);
 
-                Debug.Log("EQUIPPED: " + itemId.name);
+                //Debug.Log("EQUIPPED: " + itemId.name);
 
             }
-            else if(itemId.GetComponent<AbstractItem>().equipped)
+            else if (itemscpt.equipped)
             {
                 itemId.transform.position = GameObject.FindGameObjectWithTag("ItemsFolder").transform.position;
-                itemId.GetComponent<AbstractItem>().equipped = false;
+                itemscpt.equipped = false;
+                itemscpt.DisableItemEffect();
                 itemId.transform.SetParent(GameObject.FindGameObjectWithTag("ItemsFolder").gameObject.transform);
 
-                Debug.Log("UNEQUIPPED: " + itemId.name);
+                //Debug.Log("UNEQUIPPED: " + itemId.name);
             }
 
             //Items.RemoveAt(itemId);
@@ -231,8 +249,7 @@ public class InventoryUI : MonoBehaviour
 
     void ClearEquipSlots()
     {
-        Debug.Log(equippedSlots.Count);
-        for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
         {
             equippedSlots[i].GetComponent<SlotInfo>().itemText = "";
             equippedSlots[i].GetComponent<SlotInfo>().itemName = "";

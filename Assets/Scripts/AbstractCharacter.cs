@@ -22,6 +22,20 @@ abstract public class AbstractCharacter : MonoBehaviour
         return new WaitForSeconds(waitTime);
     }
 
+    
+    float _multiArmor;
+    float _multiMagicDamage;
+    float _multiSpeed;
+    float _multiWeaponDamage;
+
+    public float multiArmorA{get{return _multiArmor;}set{_multiArmor = value;UpdateStats();}}
+    public float multiMagicDamageA{get{return _multiMagicDamage;}set{_multiMagicDamage = value;UpdateStats();}}
+    public float multiSpeedA{get{return _multiSpeed;}set{_multiSpeed = value;UpdateStats();}}
+    public float multiWeaponDamageA{get{return _multiWeaponDamage;}set{_multiWeaponDamage = value;UpdateStats();}}
+
+
+
+
     public delegate void OnGeneralStateChanged(string name, float value,float fval);
     public event OnGeneralStateChanged GenNotify;
 
@@ -203,12 +217,12 @@ abstract public class AbstractCharacter : MonoBehaviour
     public void UpdateStats()
     {
         maxExp = 1000 + 100 * level;
-        Debug.Log("maxExp: " + maxExp);
+        //Debug.Log("maxExp: " + maxExp);
 
-        magicLevel = 25 * level;
-        weaponDamage = 25 * level;
+        magicLevel = (25 * level) * multiMagicDamageA;
+        weaponDamage = 25 * level * multiWeaponDamageA;
 
-        MaxHealth = 100 + 75 * level;
+        MaxHealth = 100 + 75 * level * multiArmorA;
     }
 
     public virtual void Respawn()

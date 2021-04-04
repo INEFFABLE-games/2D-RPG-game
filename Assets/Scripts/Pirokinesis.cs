@@ -40,7 +40,6 @@ public class Pirokinesis : MagicManager
                 }
                 else
                 {
-                    Debug.Log("No mana");
                 }
             }
         }

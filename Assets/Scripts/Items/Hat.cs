@@ -17,6 +17,12 @@ public class Hat : AbstractItem
         Cost = 200;
         isEuipped = false;
         itemType = Type.Equipttable.ToString();
+        multiArmor += Random.Range(.05f,.15f);
+        multiMagicDamage += Random.Range(.05f,.15f);
+        multiSpeed += Random.Range(.05f,.15f);
+        multiWeaponDamage += Random.Range(.05f,.15f);
+
+
         //Rarity = (int)Rares.Common;
         gameObject.name = itemName;
         itemName = gameObject.name + " (" + Amount + ")";
@@ -67,5 +73,31 @@ public class Hat : AbstractItem
         itemName = gameObject.name + " (" + Amount + ")";
         transform.GetChild(0).GetChild(0).GetComponent<Text>().text = itemName;
     }
+
+    public override void EnableItemEffect()
+    {
+
+        GameObject plr = GameObject.FindGameObjectWithTag("Player").gameObject;
+
+        plr.GetComponent<CharacterStats>().multiArmorA += multiArmor;
+        plr.GetComponent<CharacterStats>().multiMagicDamageA += multiMagicDamage;
+        plr.GetComponent<PlayerMovement>().SpeedMulti += multiSpeed;
+        plr.GetComponent<CharacterStats>().multiWeaponDamageA += multiWeaponDamage;
+
+
+    }
+
+    public override void DisableItemEffect()
+    {
+
+        GameObject plr = GameObject.FindGameObjectWithTag("Player").gameObject;
+
+        plr.GetComponent<CharacterStats>().multiArmorA -= multiArmor;
+        plr.GetComponent<CharacterStats>().multiMagicDamageA -= multiMagicDamage;
+        plr.GetComponent<PlayerMovement>().SpeedMulti -= multiSpeed;
+        plr.GetComponent<CharacterStats>().multiWeaponDamageA -= multiWeaponDamage;
+
+    }
+
 
 }

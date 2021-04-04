@@ -29,31 +29,31 @@ public class JustItemForSale : AbstractItem
         {
             case (int)Rares.Common:
 
-            transform.GetChild(0).GetChild(0).GetComponent<Text>().color = Color.white;
+                transform.GetChild(0).GetChild(0).GetComponent<Text>().color = Color.white;
 
                 break;
 
             case (int)Rares.Uncommon:
 
-            transform.GetChild(0).GetChild(0).GetComponent<Text>().color = Color.green;
+                transform.GetChild(0).GetChild(0).GetComponent<Text>().color = Color.green;
 
                 break;
 
             case (int)Rares.Rare:
 
-            transform.GetChild(0).GetChild(0).GetComponent<Text>().color = Color.blue;
+                transform.GetChild(0).GetChild(0).GetComponent<Text>().color = Color.blue;
 
                 break;
 
             case (int)Rares.Legendary:
 
-            transform.GetChild(0).GetChild(0).GetComponent<Text>().color = Color.yellow;
+                transform.GetChild(0).GetChild(0).GetComponent<Text>().color = Color.yellow;
 
                 break;
 
             case (int)Rares.Mythic:
 
-            transform.GetChild(0).GetChild(0).GetComponent<Text>().color = Color.red;
+                transform.GetChild(0).GetChild(0).GetComponent<Text>().color = Color.red;
 
                 break;
         }
@@ -64,5 +64,14 @@ public class JustItemForSale : AbstractItem
         itemName = gameObject.name + " (" + Amount + ")";
         transform.GetChild(0).GetChild(0).GetComponent<Text>().text = itemName;
     }
+
+    public override void EnableItemEffect()
+    {
+    }
+
+    public override void DisableItemEffect()
+    {
+    }
+
 
 }

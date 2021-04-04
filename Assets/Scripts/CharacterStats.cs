@@ -140,6 +140,9 @@ public class CharacterStats : AbstractCharacter
                 text.transform.localScale = new Vector3(0.03f, 0.03f, 0.03f);
                 text.GetComponent<Text>().color = Color.blue;
             }
+        }else
+        {
+            GameObject.Destroy(text);
         }
 
     }

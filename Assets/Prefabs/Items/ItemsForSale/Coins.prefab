@@ -355,7 +355,6 @@ GameObject:
   - component: {fileID: 3445946054620559522}
   - component: {fileID: 130340290455062520}
   - component: {fileID: 3445946054620559527}
-  - component: {fileID: 3445946054620559523}
   m_Layer: 0
   m_Name: Coins
   m_TagString: InventoryItem
@@ -449,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3f29522740e8b4abd1359a2bade3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpText: {fileID: 0}
+  pickUpText: {fileID: 3445946052971354149}
 --- !u!114 &130340290455062520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,10 +461,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eec8959cfad65b4fa766e1ec65c32e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipped: 0
   _itemName: Coins
   _Amount: 1
   _Cost: 1
   _Rarity: 2
+  _itemType: 
   Description: A hard-won coin is more expensive than a gift treasury.
 --- !u!58 &3445946054620559527
 CircleCollider2D:
@@ -483,19 +484,6 @@ CircleCollider2D:
   m_Offset: {x: 0.23002306, y: -0.10594368}
   serializedVersion: 2
   m_Radius: 1.6853145
---- !u!114 &3445946054620559523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3445946054620559526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be3f29522740e8b4abd1359a2bade3a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickUpText: {fileID: 3445946052971354149}
 --- !u!1 &3717256863999093020
 GameObject:
   m_ObjectHideFlags: 0
