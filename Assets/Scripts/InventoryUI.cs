@@ -79,10 +79,10 @@ public class InventoryUI : MonoBehaviour
     public void AddItem(GameObject item)
     {
 
-        if (Items.Any(x => x.name.Contains(item.name)))
+        if (Items.Any(x => x.name.Contains(item.name)) && item.GetComponent<AbstractItem>().itemType != "Equipttable")
         {
             GameObject obj = Items.First(x => x.name.Contains(item.name));
-            obj.GetComponent<AbstractItem>().Amount += gameObject.GetComponent<AbstractItem>().Amount;
+            obj.GetComponent<AbstractItem>().Amount += item.GetComponent<AbstractItem>().Amount;
             GameObject.Destroy(item);
         }
         else

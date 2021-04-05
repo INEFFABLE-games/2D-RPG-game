@@ -48,6 +48,15 @@ public class SlotInfo : MonoBehaviour
                 "\nSpeed: " + stats.multiSpeed +
                 "\nWeapon Damage: " + stats.multiWeaponDamage;
             }
+            else if(item.name.Contains("Essence"))
+            {
+                Essence stats = item.GetComponent<Essence>();
+                textBox.GetComponent<Text>().text = _itemText +
+                "\nArmor: " + stats.multiArmor +
+                "\nMagic Power: " + stats.multiMagicDamage +
+                "\nSpeed: " + stats.multiSpeed +
+                "\nWeapon Damage: " + stats.multiWeaponDamage;
+            }
 
 
         }

@@ -12,7 +12,6 @@ public class JustItemForSale : AbstractItem
     {
 
         AmountNotify += ChangeText;
-        Cost = 1;
         itemType = Type.Nothing.ToString();
         //Rarity = (int)Rares.Common;
         gameObject.name = itemName;

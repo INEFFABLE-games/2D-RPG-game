@@ -14,7 +14,6 @@ public class Magic_Ring : AbstractItem
     {
 
         AmountNotify += ChangeText;
-        Cost = 200;
         isEuipped = false;
 
         itemType = Type.Equipttable.ToString();

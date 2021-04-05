@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Overworld_351
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -7104622249503891358, guid: 640faa46e369bc048bca3cd41592bed2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9271933, g: 1, b: 0, a: 1}
   m_Transform:
     e00: 1
     e01: 0

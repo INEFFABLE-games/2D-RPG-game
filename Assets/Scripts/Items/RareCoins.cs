@@ -12,7 +12,6 @@ public class RareCoins : AbstractItem
     {
 
         AmountNotify += ChangeText;
-        Cost = 1;
         itemType = Type.Nothing.ToString();
         Rarity = (int)Rares.Mythic;
         gameObject.name = itemName;

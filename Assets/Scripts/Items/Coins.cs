@@ -12,7 +12,6 @@ public class Coins : AbstractItem
     {
 
         AmountNotify += ChangeText;
-        Cost = 1;
         itemType = Type.Nothing.ToString();
         Rarity = (int)Rares.Uncommon;
         gameObject.name = itemName;

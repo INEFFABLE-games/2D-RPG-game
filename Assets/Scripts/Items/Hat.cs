@@ -14,7 +14,6 @@ public class Hat : AbstractItem
     {
 
         AmountNotify += ChangeText;
-        Cost = 200;
         isEuipped = false;
         itemType = Type.Equipttable.ToString();
         multiArmor += Random.Range(.05f,.15f);

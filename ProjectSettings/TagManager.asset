@@ -51,17 +51,32 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: MG_Water
+    uniqueID: 58380
+    locked: 0
+  - name: MG_Ground
+    uniqueID: 48509
+    locked: 0
   - name: Ground
     uniqueID: 3524663025
     locked: 0
   - name: Enviroment
     uniqueID: 2703397729
     locked: 0
+  - name: MG_Objects
+    uniqueID: 25807
+    locked: 0
   - name: Player
     uniqueID: 3251185153
     locked: 0
+  - name: Hats
+    uniqueID: 1858902469
+    locked: 0
   - name: Trees
     uniqueID: 3493360289
+    locked: 0
+  - name: FX
+    uniqueID: 920140073
     locked: 0
   - name: UI
     uniqueID: 114170295

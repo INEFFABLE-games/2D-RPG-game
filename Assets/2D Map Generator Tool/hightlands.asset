@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a9361619325944e8cd0bc94666d2cb, type: 3}
+  m_Name: hightlands
+  m_EditorClassIdentifier: 
+  ground: {fileID: -7104622249503891358, guid: 640faa46e369bc048bca3cd41592bed2, type: 3}
+  treesIntensity: 50.8
+  trees:
+  - priority: 53
+    model: {fileID: 11400000, guid: cc9a8a97a1d00b64194b56c5b1bf5265, type: 2}
+  - priority: 53
+    model: {fileID: 11400000, guid: 29462d8f8e1e89b44bf8709e9a4d755e, type: 2}
+  - priority: 56
+    model: {fileID: 11400000, guid: 12e7e39aa8723ac4493545f6f79dabc7, type: 2}
+  - priority: 56
+    model: {fileID: 11400000, guid: 51e0432e4aebd224f957baed3aaf2453, type: 2}
+  objectsIntensity: 57.4
+  objects:
+  - priority: 51
+    model: {fileID: 11400000, guid: 58eddca65a6fa1749819208a84e53535, type: 2}
+  - priority: 53
+    model: {fileID: 11400000, guid: 95fb04fb056789749bb30ccbcbd1495d, type: 2}
+  - priority: 56
+    model: {fileID: 11400000, guid: 1687eb31b75a793469db1a78225cf3a1, type: 2}
+  - priority: 58
+    model: {fileID: 11400000, guid: 3b423d7a15f4ff3478012ffb8706911e, type: 2}
+  - priority: 61
+    model: {fileID: 11400000, guid: 3c247e62979432f43a743e2675e77037, type: 2}
+  - priority: 63
+    model: {fileID: 11400000, guid: 558a399d617f9744a98a1ebbaaf2255c, type: 2}
+  locationsIntensity: 58.4
+  locations:
+  - priority: 58
+    model: {fileID: 11400000, guid: 5bb730c73c9218547b15e6a9d342180a, type: 2}
+  - priority: 57
+    model: {fileID: 11400000, guid: 9859e3e90fd5b9c4bbcff963f109d7bd, type: 2}
+  - priority: 57
+    model: {fileID: 11400000, guid: 5db3f8df450a80741bc552f1f9030471, type: 2}
+  - priority: 56
+    model: {fileID: 11400000, guid: 10580f0c16dc677499d89a9e3adbb75f, type: 2}
