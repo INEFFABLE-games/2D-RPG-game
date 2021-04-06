@@ -15,6 +15,7 @@ TagManager:
   - DropItemButton
   - EquippedItems
   - Settlement
+  - RespawnManager
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - Character
   - Trees
   - Ground
-  - 
+  - Obstacle
   - 
   - 
   - 

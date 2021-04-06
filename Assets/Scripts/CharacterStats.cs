@@ -17,44 +17,20 @@ public class CharacterStats : AbstractCharacter
 
     void Start()
     {
+
+        multiArmorA = 1;
+        multiMagicDamageA = 1;
+        multiSpeedA = 1;
+        multiWeaponDamageA = 1;
+
         UpdateStats();
         Health = MaxHealth;
         GenNotify += OnStateChangedNotify;
         DiedNotify += OnDied;
         StartCoroutine(RegenerationHandler());
-        level = startLevel;
-
-        if (this.gameObject.tag == "Enemy")
-            level += (uint)Random.Range(1, 20);
 
         name = Name;
 
-        enemyNames = new List<string>()
-        {
-            "Ruthe",
-            "Stephanie",
-            "Shanie",
-            "Camille",
-            "Lesly",
-            "Daisy",
-            "Dedric",
-            "Manley",
-            "Dorian",
-            "Leola",
-            "Kaitlin",
-            "Emie",
-            "Dandre",
-            "Stacey",
-            "Caroline",
-            "Sabina",
-            "Erwin",
-            "Victoria",
-            "Carrie",
-            "Ramon",
-            "Amira"
-        };
-        if (this.gameObject.tag == "Enemy")
-            name = enemyNames[Random.Range(0, 20)];
     }
 
     void Update()
@@ -164,13 +140,7 @@ public class CharacterStats : AbstractCharacter
         this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
         Instantiate(effect, transform.position, transform.rotation);
 
-        Respawn();
         //Destroy(this.gameObject);
-    }
-
-    public override void Respawn()
-    {
-
     }
 
 }

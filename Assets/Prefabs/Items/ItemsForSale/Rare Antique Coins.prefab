@@ -68,8 +68,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -770304271
-  m_SortingLayer: 1
+  m_SortingLayerID: 25807
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 2346192434483656938, guid: c87d636861b344848ba109c8b8e24495, type: 3}
   m_Color: {r: 0.9811321, g: 0.59049976, b: 0.37486652, a: 1}
@@ -150,8 +150,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -770304271
-  m_SortingLayer: 1
+  m_SortingLayerID: 25807
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 2346192434483656938, guid: c87d636861b344848ba109c8b8e24495, type: 3}
   m_Color: {r: 0.98039216, g: 0.37647066, b: 0.6374501, a: 1}
@@ -422,8 +422,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -770304271
-  m_SortingLayer: 1
+  m_SortingLayerID: 25807
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 2346192434483656938, guid: c87d636861b344848ba109c8b8e24495, type: 3}
   m_Color: {r: 0.9433962, g: 0.493948, b: 0.493948, a: 1}
@@ -461,6 +461,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ebdffd2522e434792b10ab515e5185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multiArmor: 0
+  multiMagicDamage: 0
+  multiSpeed: 0
+  multiWeaponDamage: 0
   equipped: 0
   _itemName: Antique coins
   _Amount: 1
@@ -552,8 +556,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -770304271
-  m_SortingLayer: 1
+  m_SortingLayerID: 25807
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 2346192434483656938, guid: c87d636861b344848ba109c8b8e24495, type: 3}
   m_Color: {r: 0.12922749, g: 0.8301887, b: 0.32056633, a: 1}
@@ -634,8 +638,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -770304271
-  m_SortingLayer: 1
+  m_SortingLayerID: 25807
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 2346192434483656938, guid: c87d636861b344848ba109c8b8e24495, type: 3}
   m_Color: {r: 0.7258547, g: 0.37647066, b: 0.98039216, a: 1}
@@ -716,8 +720,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -770304271
-  m_SortingLayer: 1
+  m_SortingLayerID: 25807
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 2346192434483656938, guid: c87d636861b344848ba109c8b8e24495, type: 3}
   m_Color: {r: 0.8867924, g: 0.87854534, b: 0.3973834, a: 1}
@@ -798,8 +802,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -770304271
-  m_SortingLayer: 1
+  m_SortingLayerID: 25807
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 2346192434483656938, guid: c87d636861b344848ba109c8b8e24495, type: 3}
   m_Color: {r: 0.37647066, g: 0.78030246, b: 0.98039216, a: 1}

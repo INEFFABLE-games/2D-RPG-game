@@ -15,9 +15,9 @@ public class NameBarScript : MonoBehaviour
         {
             lvl = Character.GetComponent<CharacterStats>().level;
         }
-        else if (Character.GetComponent<EnemyStats>())
+        else if (Character.GetComponent<AbstractCharacter>())
         {
-            lvl = Character.GetComponent<EnemyStats>().level;
+            lvl = Character.GetComponent<AbstractCharacter>().level;
         }
 
         label.GetComponent<Text>().text = Character.name + " : " + lvl + " lvl.";

@@ -63,7 +63,7 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 			Random rnd = new Random();
 			var Player = GameObject.FindWithTag("Player");
 			float dmg = Player.GetComponent<CharacterStats>().magicLevel + UnityEngine.Random.Range(1,20);
-			other.gameObject.GetComponent<EnemyStats>().TakeDamage(dmg);
+			other.gameObject.GetComponent<AbstractCharacter>().TakeDamage(dmg);
 
         }
 		if (other.gameObject.tag == "Settlement")
@@ -71,7 +71,7 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 			Random rnd = new Random();
 			var Player = GameObject.FindWithTag("Player");
 			float dmg = Player.GetComponent<CharacterStats>().magicLevel + Random.Range(1,20);
-			other.gameObject.GetComponent<EnemyStats>().TakeDamage(dmg);
+			other.gameObject.GetComponent<AbstractCharacter>().TakeDamage(dmg);
 
         }
 

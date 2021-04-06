@@ -14,10 +14,8 @@ public class HPUnderHead : MonoBehaviour
 
     void Update()
     {
-        if(Character.GetComponent<CharacterStats>())
-            localScale.x = Character.GetComponent<CharacterStats>().Health/1500;
-        else if(Character.GetComponent<EnemyStats>())
-            localScale.x = Character.GetComponent<EnemyStats>().Health/1500;
+        if(Character.GetComponent<AbstractCharacter>())
+            localScale.x = Character.GetComponent<AbstractCharacter>().Health/1500;
 
         transform.localScale = localScale;
     }

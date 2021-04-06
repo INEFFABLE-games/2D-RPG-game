@@ -4,29 +4,33 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Threading;
 
-public class EnemyStats : AbstractCharacter
+public class Settlement : AbstractCharacter
 {
 
     List<string> enemyNames;
 
     public GameObject effect;
     public Sprite dead;
-    public Vector3 respawnPoint;
-    public uint startLevel;
     public GameObject expText;
+    [SerializeField]GameObject template;
 
     public GameObject moneyDrop;
 
     void Start()
     {
+        multiArmorA = 1;
+        multiMagicDamageA = 1;
+        multiSpeedA = 1;
+        multiWeaponDamageA = 1;
+
+        level = (uint)Random.Range(1, 20);
         UpdateStats();
         Health = MaxHealth;
         GenNotify += OnStateChangedNotify;
         DiedNotify += OnDied;
         StartCoroutine(RegenerationHandler());
-        level = startLevel;
 
-        level += (uint)Random.Range(1, 20);
+
 
         enemyNames = new List<string>()
         {
@@ -53,11 +57,6 @@ public class EnemyStats : AbstractCharacter
             "Amira"
         };
         name = enemyNames[Random.Range(0, 20)];
-    }
-
-    void Update()
-    {
-
     }
 
     void OnStateChangedNotify(string name, float value, float fval)
@@ -96,6 +95,7 @@ public class EnemyStats : AbstractCharacter
 
         var plrStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>();
         plrStats.exp += 100 * (10 + this.level - plrStats.level) / (10 + plrStats.level);
+
         Respawn();
 
         if (Random.Range(1, 5) == 1)
@@ -104,15 +104,13 @@ public class EnemyStats : AbstractCharacter
             money.GetComponent<AbstractItem>().Amount = (uint)Random.Range(1, Mathf.Abs(Mathf.Sqrt(level) * 10));
         }
 
-        Destroy(this.gameObject);
+        GameObject.Destroy(gameObject);
+
     }
 
     public override void Respawn()
     {
-        Wait(10.0f);
-        GameObject newenemy = Instantiate(this.gameObject, new Vector3(Random.Range(-5, 5), Random.Range(-5, 5)), transform.rotation);
-
-        Debug.Log("respawned");
+        GameObject.FindGameObjectWithTag("RespawnManager").GetComponent<TimedRespawn>().Respawn(30f,respawnPosition,"Settlement");
     }
 
 }

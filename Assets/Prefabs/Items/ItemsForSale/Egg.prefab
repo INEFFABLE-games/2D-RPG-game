@@ -251,8 +251,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -770304271
-  m_SortingLayer: 1
+  m_SortingLayerID: 25807
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 14c5c48283a8eeb4098db89eda4a48ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -306,6 +306,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2d1b162b31f9240bfac180e3f02460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multiArmor: 0
+  multiMagicDamage: 0
+  multiSpeed: 0
+  multiWeaponDamage: 0
   equipped: 0
   _itemName: Egg
   _Amount: 1

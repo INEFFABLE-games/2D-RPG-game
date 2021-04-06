@@ -14,7 +14,7 @@ abstract public class AbstractCharacter : MonoBehaviour
                 Health += 10;
             yield return new WaitForSeconds(1);
         }
-    }
+    }       
 
     public IEnumerator Wait(float waitTime)
     {
@@ -23,10 +23,12 @@ abstract public class AbstractCharacter : MonoBehaviour
     }
 
     
-    float _multiArmor;
-    float _multiMagicDamage;
-    float _multiSpeed;
-    float _multiWeaponDamage;
+    [SerializeField]float _multiArmor;
+    [SerializeField]float _multiMagicDamage;
+    [SerializeField]float _multiSpeed;
+    [SerializeField]float _multiWeaponDamage;
+
+    public Vector3 respawnPosition;
 
     public float multiArmorA{get{return _multiArmor;}set{_multiArmor = value;UpdateStats();}}
     public float multiMagicDamageA{get{return _multiMagicDamage;}set{_multiMagicDamage = value;UpdateStats();}}
@@ -219,10 +221,10 @@ abstract public class AbstractCharacter : MonoBehaviour
         maxExp = 1000 + 100 * level;
         //Debug.Log("maxExp: " + maxExp);
 
-        magicLevel = (25 * level) * multiMagicDamageA;
-        weaponDamage = 25 * level * multiWeaponDamageA;
+        magicLevel = (5 * level) * multiMagicDamageA;
+        weaponDamage = 5 * level * multiWeaponDamageA;
 
-        MaxHealth = 100 + 75 * level * multiArmorA;
+        MaxHealth = 20 * level * multiArmorA;
     }
 
     public virtual void Respawn()
