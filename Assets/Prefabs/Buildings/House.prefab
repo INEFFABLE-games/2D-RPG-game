@@ -550,14 +550,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -45.48665, y: 7.82106}
-      - {x: -48.453445, y: 7.815592}
-      - {x: -48.460396, y: 6.402235}
+    - - {x: -45.451965, y: 6.607891}
+      - {x: -48.48813, y: 6.498436}
+      - {x: -48.529762, y: 6.402235}
       - {x: -48.520897, y: 4.7694798}
       - {x: -48.509712, y: 4.753789}
       - {x: -48.467438, y: 3.3255582}
       - {x: -42.55761, y: 3.293604}
-      - {x: -42.658974, y: 7.830456}
+      - {x: -42.624275, y: 6.5826244}
 --- !u!1 &5675478312951457445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,9 +1149,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1591569567
-  m_SortingLayer: 4
-  m_SortingOrder: 1
+  m_SortingLayerID: -1043782143
+  m_SortingLayer: 6
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
