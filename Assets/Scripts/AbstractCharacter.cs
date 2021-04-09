@@ -35,7 +35,17 @@ abstract public class AbstractCharacter : MonoBehaviour
     public float multiSpeedA{get{return _multiSpeed;}set{_multiSpeed = value;UpdateStats();}}
     public float multiWeaponDamageA{get{return _multiWeaponDamage;}set{_multiWeaponDamage = value;UpdateStats();}}
 
-
+    [SerializeField] float _reputation;
+    public float reputation{get{return _reputation;}
+    set
+    {
+        if(value < 3000f && value > -3000f)
+        {
+            GenNotify?.Invoke("reputation",value - _reputation,value);
+            _reputation = value;
+        }
+    }
+    }
 
 
     public delegate void OnGeneralStateChanged(string name, float value,float fval);

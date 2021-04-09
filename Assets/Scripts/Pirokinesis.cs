@@ -60,6 +60,8 @@ public class Pirokinesis : MagicManager
         Vector2 mousePos = new Vector2 (Camera.main.ScreenToWorldPoint (Input.mousePosition).x ,Camera.main.ScreenToWorldPoint (Input.mousePosition).y);
         Vector2 firePointPos = new Vector2 (shotPoint.position.x, shotPoint.position.y);
 
+        proj.GetComponent<Fireball>().DamageHitter = Player;
+
     } 
 
 

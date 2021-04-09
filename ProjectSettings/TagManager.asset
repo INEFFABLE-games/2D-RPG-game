@@ -16,6 +16,7 @@ TagManager:
   - EquippedItems
   - Settlement
   - RespawnManager
+  - InventoryStatsText
   layers:
   - Default
   - TransparentFX
@@ -73,6 +74,9 @@ TagManager:
     locked: 0
   - name: Hats
     uniqueID: 1858902469
+    locked: 0
+  - name: ROOFS
+    uniqueID: 983815791
     locked: 0
   - name: Trees
     uniqueID: 3493360289

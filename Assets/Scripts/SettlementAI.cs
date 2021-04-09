@@ -5,87 +5,93 @@ using UnityEngine;
 public class SettlementAI : MonoBehaviour
 {
 
-    public float WalkSpeed;
     public float SpeedMulti;
     public bool canMove;
-    bool moving;
+    //bool moving;
+    bool isWandering;
 
-    private float Speed;
+    [SerializeField]private float Speed;
     private Rigidbody2D myRigidBody;
     private Vector3 change;
     private Animator animator;
 
-    IEnumerator Wait(float time)
+    IEnumerator Wandering()
     {
-        yield return new WaitForSeconds(time);
+
+        float waitTime = Random.Range(1f, 3f);
+        float wanderTime = Random.Range(1f, 3f);
+
+        canMove = false;
+        isWandering = true;
+
+            if (Random.Range(0, 2) == 1)
+            {
+                change.x = Random.Range(-2, 2); // set user input to x 
+            }
+            else
+            {
+                change.y = Random.Range(-2, 2); // set user input to y
+            }
+
+
+        yield return new WaitForSeconds(wanderTime);
+
+        isWandering = false;
+        change = Vector3.zero;
+
+        yield return new WaitForSeconds(waitTime);
+
+        canMove = true;
+
+
+        yield break;
+
     }
 
-   
+
     void Start()
     {
         animator = GetComponent<Animator>();
         myRigidBody = GetComponent<Rigidbody2D>(); // locate component of Rigidbody
-        Speed = WalkSpeed;
-        moving = false;
+        //moving = false;
         canMove = true;
+        SpeedMulti = 1f;
     }
 
     void Update()
     {
-        change = Vector3.zero;
 
-        Debug.Log(Random.Range(0,2));
+        if (!isWandering && canMove)
+            StartCoroutine(Wandering());
 
-        if(Random.Range(0,5) == 1)
+        else if (isWandering)
         {
-            if(Random.Range(0,2) == 1)
-            change.x = Random.Range(-2,2); // set user input to x 
+            myRigidBody.MovePosition
+            (
+                transform.position + (change.normalized * Speed * SpeedMulti) * Time.deltaTime
+            );
 
-            if(Random.Range(0,2) == 1)
-            change.y = Random.Range(-2,2); // set user input to y
-
-            Debug.Log("Settlement AI");
         }
-
-        if (change != Vector3.zero) // if change value more not 0 then call move function, for optimization
+        
+        if (change != Vector3.zero) // if change value more not 0 then call move function
         {
-            moving = true;
+
+            //moving = true;
             animator.SetFloat("moveX", change.x);
             animator.SetFloat("moveY", change.y);
             animator.SetBool("moving", true);
-
-            UpdateAnimation();
-
 
         }
         else
         {
             animator.SetBool("moving", false);
-            moving = false;
+            //moving = false;
         }
 
     }
 
     private void FixedUpdate()
     {
-
-        if (moving && canMove)
-            MoveCharacter();
-
-    }
-
-    void UpdateAnimation()
-    {
-
-    }
-
-    void MoveCharacter()
-    {
-
-        myRigidBody.MovePosition
-        (
-            transform.position + (change.normalized * Speed * SpeedMulti) * Time.deltaTime
-        );
 
     }
 

@@ -18,11 +18,6 @@ public class BarManager : MonoBehaviour
 
     }
 
-    void Update()
-    {
-            
-    }
-
     public virtual void FillChange(string name,float value,float fval)
     {
         if(name == "mana" && ValueTakeName == "mana")

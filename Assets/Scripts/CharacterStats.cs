@@ -11,7 +11,6 @@ public class CharacterStats : AbstractCharacter
 
     public GameObject effect;
     public Sprite dead;
-    public Vector3 respawnPoint;
     public uint startLevel;
     public GameObject expText;
 

@@ -12,7 +12,8 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 {
 	// If true, deactivate the object instead of destroying it
 	public bool OnlyDeactivate;
-	
+	public GameObject Damager;
+
 	void OnEnable()
 	{
 		StartCoroutine("CheckIfAlive");
@@ -61,17 +62,17 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 		if (other.gameObject.tag == "Enemy")
         {
 			Random rnd = new Random();
-			var Player = GameObject.FindWithTag("Player");
-			float dmg = Player.GetComponent<CharacterStats>().magicLevel + UnityEngine.Random.Range(1,20);
+			float dmg = Damager.GetComponent<CharacterStats>().magicLevel + UnityEngine.Random.Range(1,20);
 			other.gameObject.GetComponent<AbstractCharacter>().TakeDamage(dmg);
+			Damager.GetComponent<AbstractCharacter>().reputation += 100; 
 
         }
 		if (other.gameObject.tag == "Settlement")
         {
 			Random rnd = new Random();
-			var Player = GameObject.FindWithTag("Player");
-			float dmg = Player.GetComponent<CharacterStats>().magicLevel + Random.Range(1,20);
+			float dmg = Damager.GetComponent<CharacterStats>().magicLevel + Random.Range(1,20);
 			other.gameObject.GetComponent<AbstractCharacter>().TakeDamage(dmg);
+			Damager.GetComponent<AbstractCharacter>().reputation -= 100; 
 
         }
 

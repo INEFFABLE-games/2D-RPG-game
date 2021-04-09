@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fireball : MonoBehaviour
 {
 
+    public GameObject DamageHitter;
     public float lifeTime;
     public GameObject destroyEffect;
     public GameObject earthEffect;
@@ -26,7 +27,8 @@ public class Fireball : MonoBehaviour
 
     void DestroyProjectile()
     {
-        Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        GameObject a = Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        a.GetComponent<CFX_AutoDestructShuriken>().Damager = DamageHitter;
         Destroy(gameObject);
     }
 

@@ -9,7 +9,7 @@ public class MaybeCamera : MonoBehaviour
     private Camera myCamera;
     public Transform prl;
     private float _cameraScale = 5;
-    private float cameraScale{get{return _cameraScale;}set{if(value > (float)3f && value < (float)10f){_cameraScale = value;}}}
+    private float cameraScale{get{return _cameraScale;}set{if(value > (float)3f && value < (float)20f){_cameraScale = value;}}}
     private Vector3 directionMove;
 
     void Start()
