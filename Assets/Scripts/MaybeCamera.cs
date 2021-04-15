@@ -14,8 +14,8 @@ public class MaybeCamera : MonoBehaviour
 
     void Start()
     {
-            myCamera = GetComponent<Camera>();
-            directionMove =transform.position;
+            myCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            directionMove = GameObject.FindGameObjectWithTag("MainCamera").transform.position;
     }
 
     // Update is called once per frame
@@ -32,9 +32,11 @@ public class MaybeCamera : MonoBehaviour
             cameraScale+=0.5f;
             myCamera.orthographicSize = cameraScale;
         }
- directionMove = Vector3.Lerp(directionMove,prl.position,Time.deltaTime *speed);
- directionMove.z=-10;
-        transform.position = directionMove;        
+
+        directionMove = Vector3.Lerp(directionMove,prl.position,Time.deltaTime *speed);
+        directionMove.z=-10;
+
+        myCamera.transform.position = directionMove;        
     }
 
     

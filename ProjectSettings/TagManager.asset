@@ -14,9 +14,9 @@ TagManager:
   - ItemsFolder
   - DropItemButton
   - EquippedItems
-  - Settlement
   - RespawnManager
   - InventoryStatsText
+  - NPC
   layers:
   - Default
   - TransparentFX

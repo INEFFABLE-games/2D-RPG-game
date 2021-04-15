@@ -5,19 +5,19 @@ using UnityEngine;
 public class HPUnderHead : MonoBehaviour
 {
     public GameObject Character;
-    Vector3 localScale;
+    Vector3 Scale;
     void Start()
     {
-        localScale = transform.localScale;
+        Scale = transform.localScale;
 
     }
 
     void Update()
     {
         if(Character.GetComponent<AbstractCharacter>())
-            localScale.x = Character.GetComponent<AbstractCharacter>().Health/1500;
+            Scale.x = (Character.GetComponent<AbstractCharacter>().Health/Character.GetComponent<AbstractCharacter>().MaxHealth)/10;
 
-        transform.localScale = localScale;
+        transform.localScale = Scale;
     }
 
 }

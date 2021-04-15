@@ -263,7 +263,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 114170295
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: 34ecf51bcd3f4424eafda7dafd885bd0, type: 3}
   m_Color: {r: 1, g: 0.18553454, b: 0.21747853, a: 1}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 3991345434891881814}
   m_Layer: 8
   m_Name: Settlement
-  m_TagString: Settlement
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -461,6 +461,7 @@ MonoBehaviour:
   _multiSpeed: 0
   _multiWeaponDamage: 0
   respawnPosition: {x: 0, y: 0, z: 0}
+  CanShoot: 0
   _reputation: 0
   _name: 
   _isAttacked: 0

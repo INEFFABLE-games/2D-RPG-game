@@ -31,7 +31,7 @@ public class Pirokinesis : MagicManager
             if (Input.GetMouseButtonDown(0))
             {
                 timeBtwCast = DebounceTime;
-                if(Player.GetComponent<CharacterStats>().mana - ManaCost >= 0)
+                if(Player.GetComponent<CharacterStats>().mana - ManaCost >= 0 && GameObject.FindGameObjectWithTag("Player").GetComponent<AbstractCharacter>().CanShoot)
                 {
                     float distance = difference.magnitude;
                     Vector2 direction = difference / distance;

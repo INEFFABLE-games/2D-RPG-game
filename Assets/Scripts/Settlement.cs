@@ -22,8 +22,8 @@ public class Settlement : AbstractCharacter
         multiMagicDamageA = 1;
         multiSpeedA = 1;
         multiWeaponDamageA = 1;
-
-        level = (uint)Random.Range(1, 20);
+        tag = "NPC";
+        level += (uint)Random.Range(1, 10);
         UpdateStats();
         Health = MaxHealth;
         GenNotify += OnStateChangedNotify;

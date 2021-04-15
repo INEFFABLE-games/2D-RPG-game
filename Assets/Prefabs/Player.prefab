@@ -785,6 +785,9 @@ GameObject:
   - component: {fileID: 880655221568116412}
   - component: {fileID: 880655221568116415}
   - component: {fileID: 880655221568116414}
+  - component: {fileID: 8118004340926563144}
+  - component: {fileID: 6095220689055484148}
+  - component: {fileID: 952474736544161905}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -965,6 +968,7 @@ MonoBehaviour:
   _multiSpeed: 0
   _multiWeaponDamage: 0
   respawnPosition: {x: 0, y: 0, z: 0}
+  CanShoot: 0
   _reputation: 0
   _name: Fakoto
   _isAttacked: 0
@@ -980,7 +984,6 @@ MonoBehaviour:
   ChangeValue: 321
   effect: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
   dead: {fileID: 122268285079091143, guid: 4c0c767fd1a4d9f4f915ea7e9799c8bb, type: 3}
-  respawnPoint: {x: 0, y: 0, z: 0}
   startLevel: 5
   expText: {fileID: 940741810609655334, guid: 5fe12d331b7aaf94a9415b9173be51c3, type: 3}
 --- !u!114 &880655221568116414
@@ -996,6 +999,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CursorNew: {fileID: 8727336317644550581, guid: 711b4cc820e1ca64f806204819e34be6, type: 3}
+--- !u!58 &8118004340926563144
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880655221568116409}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
+--- !u!114 &6095220689055484148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880655221568116409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51cc03dd40019c745a4fd321dee9978d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Menu: {fileID: 6338044879227812891}
+  Inv: {fileID: 3982583461786258623}
+  Options: {fileID: 5672142701038072365}
+  audioMixer: {fileID: 24100000, guid: 43e74b92b7edeeb4891dd38e761e30cb, type: 2}
+--- !u!114 &952474736544161905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880655221568116409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2055ca76696c4479eb6a3a9a03b9a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  prl: {fileID: 880655221568116401}
 --- !u!1 &880655221627027222
 GameObject:
   m_ObjectHideFlags: 0
@@ -12732,7 +12781,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3982583461011392009}
   m_HandleRect: {fileID: 3982583461011392010}
   m_Direction: 2
-  m_Value: 1.0000062
+  m_Value: 1.0000058
   m_Size: 0.45116642
   m_NumberOfSteps: 0
   m_OnValueChanged:

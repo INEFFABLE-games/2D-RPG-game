@@ -29,6 +29,7 @@ abstract public class AbstractCharacter : MonoBehaviour
     [SerializeField]float _multiWeaponDamage;
 
     public Vector3 respawnPosition;
+    public bool CanShoot;
 
     public float multiArmorA{get{return _multiArmor;}set{_multiArmor = value;UpdateStats();}}
     public float multiMagicDamageA{get{return _multiMagicDamage;}set{_multiMagicDamage = value;UpdateStats();}}

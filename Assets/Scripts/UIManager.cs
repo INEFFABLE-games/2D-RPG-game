@@ -41,10 +41,12 @@ public class UIManager : MonoBehaviour
         if(Menu.activeSelf)
         {
             Menu.SetActive(false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<AbstractCharacter>().CanShoot = true;
         }
         else if(!Menu.activeSelf)
         {
             Menu.SetActive(true);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<AbstractCharacter>().CanShoot = false;
         }
     }
 
@@ -64,10 +66,12 @@ public class UIManager : MonoBehaviour
         if(Inv.activeSelf)
         {
             Inv.SetActive(false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<AbstractCharacter>().CanShoot = true;
         }
         else if(!Inv.activeSelf)
         {
             Inv.SetActive(true);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<AbstractCharacter>().CanShoot = false;
         }
     }
 

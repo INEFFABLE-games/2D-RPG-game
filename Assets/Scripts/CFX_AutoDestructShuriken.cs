@@ -59,20 +59,16 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 		{
 			other.gameObject.GetComponent<DestructScriptWithDemolition>().DestructFunc();
 		}
-		if (other.gameObject.tag == "Enemy")
-        {
-			Random rnd = new Random();
-			float dmg = Damager.GetComponent<CharacterStats>().magicLevel + UnityEngine.Random.Range(1,20);
-			other.gameObject.GetComponent<AbstractCharacter>().TakeDamage(dmg);
-			Damager.GetComponent<AbstractCharacter>().reputation += 100; 
-
-        }
-		if (other.gameObject.tag == "Settlement")
+		if (other.gameObject.tag == "NPC")
         {
 			Random rnd = new Random();
 			float dmg = Damager.GetComponent<CharacterStats>().magicLevel + Random.Range(1,20);
 			other.gameObject.GetComponent<AbstractCharacter>().TakeDamage(dmg);
-			Damager.GetComponent<AbstractCharacter>().reputation -= 100; 
+			if(other.gameObject.GetComponent<AbstractCharacter>().reputation >= 0)
+			Damager.GetComponent<AbstractCharacter>().reputation -= 10; 
+			else
+			Damager.GetComponent<AbstractCharacter>().reputation += 10; 
+
 
         }
 

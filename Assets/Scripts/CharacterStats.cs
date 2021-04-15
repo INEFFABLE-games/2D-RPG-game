@@ -21,6 +21,9 @@ public class CharacterStats : AbstractCharacter
         multiMagicDamageA = 1;
         multiSpeedA = 1;
         multiWeaponDamageA = 1;
+        CanShoot = true;
+
+        tag = "Player";
 
         UpdateStats();
         Health = MaxHealth;
@@ -136,10 +139,15 @@ public class CharacterStats : AbstractCharacter
     void OnDied(string message)
     {
         Debug.Log(message);
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
+        //this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
         Instantiate(effect, transform.position, transform.rotation);
 
-        //Destroy(this.gameObject);
+        Destroy(this.gameObject);
+        Respawn();
+    }
+    public override void Respawn()
+    {
+        GameObject.FindGameObjectWithTag("RespawnManager").GetComponent<TimedRespawn>().Respawn(5f, respawnPosition, "Player");
     }
 
 }
