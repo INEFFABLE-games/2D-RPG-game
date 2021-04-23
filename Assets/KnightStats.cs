@@ -161,7 +161,7 @@ public class KnightStats : AbstractCharacter
             {
                 if(gameObject.GetComponent<Pathfinding.AIDestinationSetter>().target != null)
                 {
-                    if(canDamage = true)
+                    if(canDamage == true)
                     StartCoroutine(DoDamage(other));
                 }
             }
