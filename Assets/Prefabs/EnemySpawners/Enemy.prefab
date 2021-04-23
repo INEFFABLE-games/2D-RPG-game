@@ -165,7 +165,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -184,7 +184,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 114170295
-  m_SortingLayer: 5
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: 34ecf51bcd3f4424eafda7dafd885bd0, type: 3}
   m_Color: {r: 1, g: 0.18553454, b: 0.21747853, a: 1}
@@ -266,7 +266,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -285,7 +285,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1043782143
-  m_SortingLayer: 3
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 7152930139536384079, guid: 4c0c767fd1a4d9f4f915ea7e9799c8bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -376,6 +376,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a43cf94306412545baf5c4f54845f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _multiArmor: 0
+  _multiMagicDamage: 0
+  _multiSpeed: 0
+  _multiWeaponDamage: 0
+  respawnPosition: {x: 0, y: 0, z: 0}
+  CanShoot: 0
+  _reputation: 0
   _name: NAme
   _isAttacked: 0
   _level: 0
@@ -390,9 +397,8 @@ MonoBehaviour:
   ChangeValue: 0
   effect: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
   dead: {fileID: 122268285079091143, guid: 4c0c767fd1a4d9f4f915ea7e9799c8bb, type: 3}
-  respawnPoint: {x: 0, y: 0, z: 0}
-  startLevel: 1
   expText: {fileID: 940741810609655334, guid: 5fe12d331b7aaf94a9415b9173be51c3, type: 3}
+  template: {fileID: 0}
   moneyDrop: {fileID: 3445946054620559526, guid: f8c9f4a85c8b79c4a8e6103fbce0ec6b, type: 3}
 --- !u!1 &55319463602291361
 GameObject:
