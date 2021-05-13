@@ -50,7 +50,7 @@ public class PickUp : MonoBehaviour
         // }
         
         
-        GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().AddItem(gameObject);
+        GameObject.FindGameObjectWithTag("Inventory").GetComponentInChildren<InventoryUI>().AddItem(gameObject);
 
         //Destroy(gameObject);
     }
