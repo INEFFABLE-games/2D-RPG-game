@@ -11,6 +11,9 @@ public class InventoryUI : MonoBehaviour
     const int AMOUNT_OF_SLOTS = 20;
 
     [SerializeField]
+    GameObject coins;
+
+    [SerializeField]
     GameObject Handler;
 
     [SerializeField]
@@ -95,8 +98,8 @@ public class InventoryUI : MonoBehaviour
             //PickedItem.SetActive(false);
         }
 
-        //SlotsUpdate();
-        UpdateInventorySlots();
+        SlotsUpdate();
+        //UpdateInventorySlots();
 
     }
 
@@ -107,14 +110,48 @@ public class InventoryUI : MonoBehaviour
         {
             itemId.transform.SetParent(null);
             itemId.transform.position = transform.position;
-            //Items[itemId].SetActive(true);
 
             //Items.RemoveAt(itemId);
 
         }
-        //SlotsUpdate();
-        UpdateInventorySlots();
+        SlotsUpdate();
+        //UpdateInventorySlots();
 
+    }
+
+    public void SellItems(GameObject item, int amount)
+    {
+        if (item != null && item.name != "Coins")
+        {
+            if (item.GetComponent<AbstractItem>()._Amount > amount)
+            {
+                Debug.Log("Selled (" + item.name + "): " + amount);
+                item.GetComponent<AbstractItem>()._Amount -= (uint)amount;
+
+                GameObject newcoins = Instantiate(coins);
+                newcoins.name = "Coins";
+                newcoins.GetComponent<AbstractItem>()._Amount = (uint)amount * newcoins.GetComponent<AbstractItem>().Cost;
+
+                AddItem(newcoins);
+
+            }
+            else if (item.GetComponent<AbstractItem>()._Amount <= amount)
+            {
+                Debug.Log("Selled All");
+
+                GameObject newcoins = Instantiate(coins);
+                newcoins.name = "Coins";
+                newcoins.GetComponent<AbstractItem>()._Amount = (uint)amount * newcoins.GetComponent<AbstractItem>().Cost;
+
+                AddItem(newcoins);
+
+                GameObject.Destroy(item);
+
+            }
+
+        }
+        Debug.Log("easgggguaiehaiuehiaeaeaeigaiuaegaeiayleyiaeilgailega");
+        SlotsUpdate();
     }
 
     void UpdateInventorySlots()
@@ -206,8 +243,7 @@ public class InventoryUI : MonoBehaviour
 
         }
 
-        UpdateInventorySlots();
-        UpdateEquipSlots();
+        SlotsUpdate();
     }
 
     void UpdateEquipSlots()
@@ -249,7 +285,7 @@ public class InventoryUI : MonoBehaviour
 
     void ClearEquipSlots()
     {
-            for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 4; i++)
         {
             equippedSlots[i].GetComponent<SlotInfo>().itemText = "";
             equippedSlots[i].GetComponent<SlotInfo>().itemName = "";

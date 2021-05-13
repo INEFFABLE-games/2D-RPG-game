@@ -95,23 +95,6 @@ public class ShopUI : MonoBehaviour
 
     }
 
-    public void RemoveItem(GameObject itemId)
-    {
-
-        if (itemId != null)
-        {
-            itemId.transform.SetParent(null);
-            itemId.transform.position = transform.position;
-            //Items[itemId].SetActive(true);
-
-            //Items.RemoveAt(itemId);
-
-        }
-        //SlotsUpdate();
-        UpdateInventorySlots();
-
-    }
-
     public void SellItem(GameObject item,int amount)
     {
         if(item.GetComponent<AbstractItem>()._Amount > amount)
