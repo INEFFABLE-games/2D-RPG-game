@@ -141,6 +141,7 @@ public class CharacterStats : AbstractCharacter
         Debug.Log(message);
         //this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
         Instantiate(effect, transform.position, transform.rotation);
+        GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryUI>().DropAllItems();
 
         Destroy(this.gameObject);
         Respawn();

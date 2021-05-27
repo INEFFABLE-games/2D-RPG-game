@@ -316,6 +316,7 @@ MonoBehaviour:
   _Cost: 0
   _Rarity: 0
   _itemType: 
+  _armorType: 4
   Description: An ordinary stone that appeared long before the appearance of humanity,
     a good thing to throw it in someone's face.
 --- !u!1001 &2202445794243043276

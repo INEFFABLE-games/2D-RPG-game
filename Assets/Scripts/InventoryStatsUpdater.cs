@@ -20,6 +20,8 @@ public class InventoryStatsUpdater : MonoBehaviour
         StatsText = GameObject.FindGameObjectWithTag("InventoryStatsText");
         isUpdating = false;
 
+        UpdateStats("x",1f,1f);
+
         PlayerStats.GenNotify += UpdateStats;
 
     }

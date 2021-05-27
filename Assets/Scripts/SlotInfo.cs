@@ -17,15 +17,10 @@ public class SlotInfo : MonoBehaviour
     public Button dropButton;
     public Button equipButton;
 
-    [SerializeField]
-    Button _sellButon;
-
     public GameObject item;
 
     UnityAction act;
 
-    [SerializeField]
-    GameObject amountBox;
     public GameObject textBox;
     public GameObject NameBox;
     public GameObject ImageBox;
@@ -77,15 +72,6 @@ public class SlotInfo : MonoBehaviour
         equipButton.onClick.RemoveAllListeners();
         equipButton.onClick.AddListener(EquipItem);
 
-        _sellButon.onClick.RemoveAllListeners();
-        _sellButon.onClick.AddListener(SellItems);
-
-    }
-
-    void SellItems()
-    {
-
-        GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().SellItems(item,int.Parse(amountBox.GetComponent<InputField>().text));
     }
 
     void DropItem()

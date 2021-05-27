@@ -288,6 +288,7 @@ MonoBehaviour:
   _Cost: 1000
   _Rarity: 4
   _itemType: 1
+  _armorType: 2
   Description: Magic ring, increases the speed of movement, I think it's quite a
     rare item
   isEuipped: 0

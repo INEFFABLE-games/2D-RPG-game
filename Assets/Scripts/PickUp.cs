@@ -48,10 +48,9 @@ public class PickUp : MonoBehaviour
         // {
         //     Debug.Log(GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().Items.Any(x => x.name.Contains(gameObject.name)));
         // }
-        
-        
-        GameObject.FindGameObjectWithTag("Inventory").GetComponentInChildren<InventoryUI>().AddItem(gameObject);
-
+        Debug.Log(gameObject);
+        Debug.Log(GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryUI>());
+        GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryUI>().AddItem(gameObject);
         //Destroy(gameObject);
     }
 

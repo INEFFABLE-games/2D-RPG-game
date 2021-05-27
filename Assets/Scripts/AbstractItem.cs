@@ -30,6 +30,14 @@ public class AbstractItem : MonoBehaviour
         Nothing
     }
 
+    public enum armorType
+    {
+        Head = 1,
+        Body,
+        Legs,
+        NotArmor
+    }
+
     [SerializeField]
     public bool equipped;
     [SerializeField]
@@ -46,6 +54,9 @@ public class AbstractItem : MonoBehaviour
     [SerializeField]
     string _itemType;
 
+    [SerializeField]
+    public int _armorType;
+
     public string Description;
 
     public uint Amount{get{return _Amount;}set{_Amount = value;AmountNotify?.Invoke(value);}}
@@ -58,5 +69,4 @@ public class AbstractItem : MonoBehaviour
 
     public virtual void DisableItemEffect(){}
     
-
 }

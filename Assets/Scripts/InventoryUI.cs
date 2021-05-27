@@ -103,13 +103,24 @@ public class InventoryUI : MonoBehaviour
 
     }
 
+    public void DropAllItems()
+    {
+        Transform[] allitems = GameObject.FindGameObjectWithTag("ItemsFolder").GetComponentsInChildren<Transform>().Where(x => x.tag == "InventoryItem").ToArray();
+        foreach (var item in allitems)
+        {
+            item.SetParent(null);
+            item.position = transform.position + new Vector3(Random.Range(-1.5f,1.5f),Random.Range(-1.5f,1.5f),0);
+        }
+
+    }
+
     public void RemoveItem(GameObject itemId)
     {
 
         if (itemId != null)
         {
             itemId.transform.SetParent(null);
-            itemId.transform.position = transform.position;
+            itemId.transform.position = transform.position + new Vector3(Random.Range(-1.5f,1.5f),Random.Range(-1.5f,1.5f),0);
 
             //Items.RemoveAt(itemId);
 
@@ -150,7 +161,6 @@ public class InventoryUI : MonoBehaviour
             }
 
         }
-        Debug.Log("easgggguaiehaiuehiaeaeaeigaiuaegaeiayleyiaeilgailega");
         SlotsUpdate();
     }
 
@@ -212,11 +222,11 @@ public class InventoryUI : MonoBehaviour
             if (!itemscpt.equipped && equippedSlots.Any(x => x.GetComponent<SlotInfo>().item == null))
             {
 
-                if (itemId.name.Contains("Hat") || itemId.name.Contains("Crown"))
+                if (itemId.GetComponent<AbstractItem>()._armorType == (int)AbstractItem.armorType.Head)
                 {
                     itemId.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + new Vector3(0, 0.65f, 0);
                 }
-                else if (itemId.name.Contains("Ring") || itemId.name.Contains("Essence"))
+                else if (itemId.GetComponent<AbstractItem>()._armorType == (int)AbstractItem.armorType.Body)
                 {
                     itemId.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + new Vector3(0, 0, 0);
                 }

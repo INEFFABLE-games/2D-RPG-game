@@ -316,6 +316,7 @@ MonoBehaviour:
   _Cost: 1000
   _Rarity: 4
   _itemType: 1
+  _armorType: 1
   Description: A magical object, I can't believe that this hat weighs nothing and
     the movements with it become easy and precise. I wonder who is the creator of
     this miracle?

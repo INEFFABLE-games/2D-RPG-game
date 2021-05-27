@@ -17015,7 +17015,7 @@ GameObject:
   - component: {fileID: 3982583462141321824}
   m_Layer: 8
   m_Name: Inventory
-  m_TagString: Untagged
+  m_TagString: Inventory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17050,6 +17050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items: []
+  coins: {fileID: 3445946054620559526, guid: f8c9f4a85c8b79c4a8e6103fbce0ec6b, type: 3}
   Handler: {fileID: 3982583462071705170}
   EquippedHandler: {fileID: 3982583462584527022}
   equippedItems: []

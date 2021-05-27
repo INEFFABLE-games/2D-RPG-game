@@ -316,6 +316,7 @@ MonoBehaviour:
   _Cost: 1000
   _Rarity: 4
   _itemType: 1
+  _armorType: 1
   Description: This item once belonged to a magic student.
   isEuipped: 0
 --- !u!1 &3727111881768035533

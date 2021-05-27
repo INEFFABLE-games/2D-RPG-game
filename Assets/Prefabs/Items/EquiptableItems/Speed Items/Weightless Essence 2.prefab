@@ -336,6 +336,7 @@ MonoBehaviour:
   _Cost: 1000
   _Rarity: 5
   _itemType: 1
+  _armorType: 2
   Description: 
   isEuipped: 0
 --- !u!1 &3727111881768035533
