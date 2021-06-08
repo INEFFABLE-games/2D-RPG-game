@@ -110,7 +110,7 @@ public class ShopUI : MonoBehaviour
         }
     }
 
-    void UpdateInventorySlots()
+    public void UpdateInventorySlots()
     {
 
         Items.Clear();
@@ -126,16 +126,15 @@ public class ShopUI : MonoBehaviour
 
         for (int i = 0; i < Items.Count; i++)
         {
-
-            Slots[i].GetComponent<SlotInfo>().itemID = i;
+            Slots[i].GetComponent<SlotInfoForShops>().itemID = i;
 
             if (Items[i] != null)
             {
 
-                Slots[i].GetComponent<SlotInfo>().itemText = Items[i].GetComponent<AbstractItem>().Description + "\nAmont:" + Items[i].GetComponent<AbstractItem>().Amount;
-                Slots[i].GetComponent<SlotInfo>().itemName = Items[i].name;
-                Slots[i].GetComponent<SlotInfo>().itemImage = Items[i].GetComponent<SpriteRenderer>().sprite;
-                Slots[i].GetComponent<SlotInfo>().item = Items[i].gameObject;
+                Slots[i].GetComponent<SlotInfoForShops>().itemText = Items[i].GetComponent<AbstractItem>().Description + "\nAmont:" + Items[i].GetComponent<AbstractItem>().Amount;
+                Slots[i].GetComponent<SlotInfoForShops>().itemName = Items[i].name;
+                Slots[i].GetComponent<SlotInfoForShops>().itemImage = Items[i].GetComponent<SpriteRenderer>().sprite;
+                Slots[i].GetComponent<SlotInfoForShops>().item = Items[i].gameObject;
                 Slots[i].GetComponent<Image>().sprite = Items[i].GetComponent<SpriteRenderer>().sprite;
                 Slots[i].name = Items[i].name;
 
@@ -149,13 +148,13 @@ public class ShopUI : MonoBehaviour
 
         for (int i = 0; i < AMOUNT_OF_SLOTS; i++)
         {
-            Slots[i].GetComponent<SlotInfo>().itemText = "";
-            Slots[i].GetComponent<SlotInfo>().itemName = "";
-            Slots[i].GetComponent<SlotInfo>().itemImage = null;
-            Slots[i].GetComponent<SlotInfo>().item = null;
+            Slots[i].GetComponent<SlotInfoForShops>().itemText = "";
+            Slots[i].GetComponent<SlotInfoForShops>().itemName = "";
+            Slots[i].GetComponent<SlotInfoForShops>().itemImage = null;
+            Slots[i].GetComponent<SlotInfoForShops>().item = null;
             Slots[i].GetComponent<Image>().sprite = null;
             Slots[i].name = "Empty";
-            Slots[i].GetComponent<SlotInfo>().itemID = 0;
+            Slots[i].GetComponent<SlotInfoForShops>().itemID = 0;
         }
     }
     }

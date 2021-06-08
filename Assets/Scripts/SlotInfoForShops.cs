@@ -17,13 +17,11 @@ public class SlotInfoForShops : MonoBehaviour
     public Button sellButton;
 
     [SerializeField]
-    int AmountOfItems;
+    int AmountOfItems = 1;
     [SerializeField]
     GameObject coinsForSale;
 
     public GameObject item;
-
-    UnityAction act;
 
     public GameObject textBox;
     public GameObject NameBox;
@@ -32,6 +30,7 @@ public class SlotInfoForShops : MonoBehaviour
     {
 
         textBox.GetComponent<Text>().text = _itemText;
+
         if (item.GetComponent<AbstractItem>().itemType == "Equipttable")
         {
             if (item.name.Contains("Hat"))
@@ -67,7 +66,6 @@ public class SlotInfoForShops : MonoBehaviour
         NameBox.GetComponent<Text>().text = _itemName;
         ImageBox.GetComponent<Image>().sprite = itemImage;
 
-        act = SellItem;
         //UnityEditor.Events.UnityEventTools.AddPersistentListener(dropButton.onClick,act);
 
         sellButton.onClick.RemoveAllListeners();
@@ -76,9 +74,15 @@ public class SlotInfoForShops : MonoBehaviour
 
     void SellItem()
     {
+        Debug.Log("REAFGAEGAUOEGHUO{AEGUAEGAEOAEG");
         GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().RemoveItem(item);
         coinsForSale.GetComponent<AbstractItem>().Amount = (uint)(AmountOfItems * item.GetComponent<AbstractItem>().Cost);
         GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().AddItem(coinsForSale);
+    }
+
+    private void Start() 
+    {
+        coinsForSale = GameObject.FindGameObjectWithTag("ItemsFolder").transform.Find("Coins").gameObject;
     }
 
 }

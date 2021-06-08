@@ -18,24 +18,39 @@ public class TimedRespawn : MonoBehaviour
     IEnumerator Debounce(float resptime, Vector3 spawnPosition, string type)
     {
 
-        yield return new WaitForSeconds(resptime);
+
+
         GameObject newChar = null;
         switch (type)
         {
             case "Settlement":
+                yield return new WaitForSeconds(resptime);
                 newChar = Instantiate(Templates[(int)Tplates.Settlement], spawnPosition, transform.rotation);
                 break;
 
             case "Knight":
+                yield return new WaitForSeconds(resptime);
                 newChar = Instantiate(Templates[(int)Tplates.Knight], spawnPosition, transform.rotation);
                 break;
 
             case "Player":
-                newChar = Instantiate(Templates[(int)Tplates.Player], spawnPosition, transform.rotation);
+                //newChar = Instantiate(Templates[(int)Tplates.Player], spawnPosition, transform.rotation);
+                GameObject plr = GameObject.FindGameObjectWithTag("Player");
+                plr.GetComponent<PlayerMovement>().canMove = false;
+
+                yield return new WaitForSeconds(resptime);
+
+                plr.GetComponent<PlayerMovement>().canMove = true;
+                plr.transform.position = spawnPosition;
+                plr.transform.rotation = transform.rotation;
+                plr.GetComponent<AbstractCharacter>().Health = 99999999;
+
+
                 break;
             default:
                 yield break;
         }
+        if (newChar != null)
         newChar.GetComponent<AbstractCharacter>().respawnPosition = spawnPosition;
     }
 

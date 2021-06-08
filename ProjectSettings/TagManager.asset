@@ -18,6 +18,7 @@ TagManager:
   - InventoryStatsText
   - NPC
   - Inventory
+  - Shop
   layers:
   - Default
   - TransparentFX

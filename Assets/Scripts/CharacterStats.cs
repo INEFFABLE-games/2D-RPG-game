@@ -143,7 +143,7 @@ public class CharacterStats : AbstractCharacter
         Instantiate(effect, transform.position, transform.rotation);
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryUI>().DropAllItems();
 
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
         Respawn();
     }
     public override void Respawn()
