@@ -22,6 +22,11 @@ public class QuestStart : MonoBehaviour
                 message.text = "Чапай бульбу ды няси яе да таргоуца!";
                 Sign.text = "";
             }
+            else if(QuestNumber == 1)
+            {
+                message.text = "Эй, странник! Мне нужна твоя помошь, доставь это письмо в соседний город Баленос, он находится на северо-востоке отсюда.";
+                Sign.text = "";
+            }
 
             other.GetComponent<QuestSystem>().ActiveQuest[QuestNumber] = true;
         }

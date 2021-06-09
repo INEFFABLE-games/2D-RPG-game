@@ -124,7 +124,7 @@ public class KnightStats : AbstractCharacter
 
         Respawn();
 
-        if (Random.Range(1, 10) == 1)
+        if (Random.Range(1, 10) == 5)
         {
             GameObject drop = Instantiate(items[Random.Range(0, items.Count)], transform.position, transform.rotation);
             drop.GetComponent<AbstractItem>().Amount = (uint)Random.Range(1, Mathf.Abs(Mathf.Sqrt(level) * 10));
