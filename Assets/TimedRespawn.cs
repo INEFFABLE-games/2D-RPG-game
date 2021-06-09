@@ -9,13 +9,14 @@ public class TimedRespawn : MonoBehaviour
     {
         Settlement,
         Knight,
-        Player
+        Player,
+        DarkKnight
 
     }
 
     [SerializeField] GameObject[] Templates;
 
-    IEnumerator Debounce(float resptime, Vector3 spawnPosition, string type)
+    IEnumerator Debounce(float resptime, Vector3 spawnPosition, string type, GameObject plr)
     {
 
 
@@ -33,30 +34,39 @@ public class TimedRespawn : MonoBehaviour
                 newChar = Instantiate(Templates[(int)Tplates.Knight], spawnPosition, transform.rotation);
                 break;
 
+            case "DarkKnight":
+                yield return new WaitForSeconds(resptime);
+                newChar = Instantiate(Templates[(int)Tplates.DarkKnight], spawnPosition, transform.rotation);
+                break;
+
             case "Player":
                 //newChar = Instantiate(Templates[(int)Tplates.Player], spawnPosition, transform.rotation);
-                GameObject plr = GameObject.FindGameObjectWithTag("Player");
-                plr.GetComponent<PlayerMovement>().canMove = false;
+
+                uint level = plr.GetComponent<AbstractCharacter>().level;
+                float rep = plr.GetComponent<AbstractCharacter>().reputation;
+
+                GameObject.Destroy(plr);
 
                 yield return new WaitForSeconds(resptime);
 
-                plr.GetComponent<PlayerMovement>().canMove = true;
-                plr.transform.position = spawnPosition;
-                plr.transform.rotation = transform.rotation;
-                plr.GetComponent<AbstractCharacter>().Health = 99999999;
+                newChar = Instantiate(Templates[(int)Tplates.Player], spawnPosition, transform.rotation);
 
+                newChar.transform.position = spawnPosition;
+                newChar.transform.rotation = transform.rotation;
+                newChar.GetComponent<AbstractCharacter>().level = level;
+                newChar.GetComponent<AbstractCharacter>().reputation = rep;
 
                 break;
             default:
                 yield break;
         }
         if (newChar != null)
-        newChar.GetComponent<AbstractCharacter>().respawnPosition = spawnPosition;
+            newChar.GetComponent<AbstractCharacter>().respawnPosition = spawnPosition;
     }
 
-    public void Respawn(float resptime, Vector3 spawnPosition, string charType)
+    public void Respawn(float resptime, Vector3 spawnPosition, string charType, GameObject thisObj)
     {
-        StartCoroutine(Debounce(resptime, spawnPosition, charType));
+        StartCoroutine(Debounce(resptime, spawnPosition, charType, thisObj));
     }
 
 }

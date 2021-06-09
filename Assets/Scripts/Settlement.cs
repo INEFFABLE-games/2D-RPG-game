@@ -110,7 +110,7 @@ public class Settlement : AbstractCharacter
 
     public override void Respawn()
     {
-        GameObject.FindGameObjectWithTag("RespawnManager").GetComponent<TimedRespawn>().Respawn(30f,respawnPosition,"Settlement");
+        GameObject.FindGameObjectWithTag("RespawnManager").GetComponent<TimedRespawn>().Respawn(30f,respawnPosition,"Settlement",this.gameObject);
     }
 
 }

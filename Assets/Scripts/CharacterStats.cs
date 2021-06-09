@@ -148,7 +148,7 @@ public class CharacterStats : AbstractCharacter
     }
     public override void Respawn()
     {
-        GameObject.FindGameObjectWithTag("RespawnManager").GetComponent<TimedRespawn>().Respawn(5f, respawnPosition, "Player");
+        GameObject.FindGameObjectWithTag("RespawnManager").GetComponent<TimedRespawn>().Respawn(5f, respawnPosition, "Player",this.gameObject);
     }
 
 }

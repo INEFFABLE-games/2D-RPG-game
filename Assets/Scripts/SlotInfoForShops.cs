@@ -74,15 +74,20 @@ public class SlotInfoForShops : MonoBehaviour
 
     void SellItem()
     {
-        Debug.Log("REAFGAEGAUOEGHUO{AEGUAEGAEOAEG");
-        GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().RemoveItem(item);
-        coinsForSale.GetComponent<AbstractItem>().Amount = (uint)(AmountOfItems * item.GetComponent<AbstractItem>().Cost);
-        GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().AddItem(coinsForSale);
+        GameObject cns = Instantiate(coinsForSale,transform.position,transform.rotation);
+        cns.name = "Coins";
+
+        Debug.Log(item);
+
+        cns.GetComponent<AbstractItem>().Amount = (uint)(item.GetComponent<AbstractItem>().Amount * item.GetComponent<AbstractItem>().Cost);
+        GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<InventoryUI>().AddItem(cns);
+        GameObject.Destroy(item);
+
     }
 
     private void Start() 
     {
-        coinsForSale = GameObject.FindGameObjectWithTag("ItemsFolder").transform.Find("Coins").gameObject;
+        //coinsForSale = GameObject.FindGameObjectWithTag("ItemsFolder").transform.Find("Coins").gameObject;
     }
 
 }

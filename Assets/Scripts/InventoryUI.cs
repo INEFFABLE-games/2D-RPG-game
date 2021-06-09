@@ -114,6 +114,22 @@ public class InventoryUI : MonoBehaviour
 
     }
 
+    public void RemoveSomeCoins(string itemName,uint Amount)
+    {
+
+        if (Items.Any(x => x.name.Contains(itemName)) && x.GetComponent<AbstractItem>().itemType != "Equipttable")
+        {
+            itemId.transform.SetParent(null);
+            itemId.transform.position = transform.position + new Vector3(Random.Range(-1.5f,1.5f),Random.Range(-1.5f,1.5f),0);
+
+            //Items.RemoveAt(itemId);
+
+        }
+        SlotsUpdate();
+        //UpdateInventorySlots();
+
+    }
+
     public void RemoveItem(GameObject itemId)
     {
 

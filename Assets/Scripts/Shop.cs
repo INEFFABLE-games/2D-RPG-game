@@ -27,7 +27,7 @@ public class Shop : MonoBehaviour
             text.SetActive(true);
             ShopUI.SetActive(true);
             GameObject.FindGameObjectWithTag("Shop").GetComponent<ShopUI>().UpdateInventorySlots();
-            GameObject.FindGameObjectWithTag("Player").GetComponent<AbstractCharacter>().CanShoot = false;
+            other.GetComponent<AbstractCharacter>().CanShoot = false;
         }
     }
 
@@ -39,7 +39,7 @@ public class Shop : MonoBehaviour
             text.SetActive(false);
 
             ShopUI.SetActive(false);
-            GameObject.FindGameObjectWithTag("Player").GetComponent<AbstractCharacter>().CanShoot = true;
+            other.GetComponent<AbstractCharacter>().CanShoot = true;
         }
     }
 

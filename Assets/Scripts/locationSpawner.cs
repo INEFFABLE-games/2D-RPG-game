@@ -18,7 +18,7 @@ public class locationSpawner : MonoBehaviour
 
             location = Instantiate(locations[Random.Range(0, locations.Count)], new Vector3(transform.position.x, transform.position.y), transform.rotation);
         }
-        yield return new WaitForSeconds(Random.Range(120,420));
+        yield return new WaitForSeconds(Random.Range(60,360));
         canSpawn = true;
 
         yield break;

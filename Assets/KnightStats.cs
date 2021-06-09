@@ -136,7 +136,7 @@ public class KnightStats : AbstractCharacter
 
     public override void Respawn()
     {
-        GameObject.FindGameObjectWithTag("RespawnManager").GetComponent<TimedRespawn>().Respawn(30f, respawnPosition, "Knight");
+        GameObject.FindGameObjectWithTag("RespawnManager").GetComponent<TimedRespawn>().Respawn(30f, respawnPosition, "Knight",this.gameObject);
     }
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "NPC")
