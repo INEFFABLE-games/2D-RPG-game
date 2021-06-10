@@ -64,6 +64,26 @@ public class Pirokinesis : MagicManager
 
     } 
 
+    bool equipped = false;
+
+    private void FixedUpdate() {
+        
+        if(Input.GetKey(KeyCode.R))
+        {
+            if(!equipped)
+            {
+                GameObject.FindGameObjectWithTag("FireBallMagic").SetActive(true);
+                equipped = true;
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("FireBallMagic").SetActive(false);
+                equipped = false;
+            }
+        }
+
+    }
+
 
 }
 

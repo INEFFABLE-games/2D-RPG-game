@@ -43,6 +43,24 @@ public class QuestEnd : MonoBehaviour
                     //newitm.GetComponent<AbstractItem>().Amount = 1;
 
                 }
+                else if (QuestNumber == 2)
+                {
+                    message.text = "Я обработал этот камень и смог получить кольцо магии.";
+                    Sign.text = "";
+
+                    GameObject newitm = Instantiate(item,transform.position + new Vector3(0,-1,0),transform.rotation);
+                    //newitm.GetComponent<AbstractItem>().Amount = 1;
+
+                }
+                else if (QuestNumber == 3)
+                {
+                    message.text = "АААААААААААААААААААА... ТУ-ДУУУУМ.... ПШШШШШШШШШ....";
+                    Sign.text = "";
+
+                    GameObject newitm = Instantiate(item,transform.position + new Vector3(0,10,0),transform.rotation);
+                    //newitm.GetComponent<AbstractItem>().Amount = 1;
+
+                }
 
                 other.GetComponent<QuestSystem>().ActiveQuest[QuestNumber] = false;
                 other.GetComponent<QuestSystem>().CompletedQuest[QuestNumber] = true;

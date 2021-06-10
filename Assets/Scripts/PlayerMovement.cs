@@ -23,10 +23,14 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private float posMulti;
 
+    [SerializeField]
+    GameObject FBMagic;
+
     IEnumerator Wait(float time)
     {
         yield return new WaitForSeconds(time);
     }
+    bool equipped = false;
 
     IEnumerator Dash()
     {
@@ -40,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
             posMulti = 1f;
             yield return new WaitForSeconds(.5f);
         }
-            CanDash = true;
-            yield break;
+        CanDash = true;
+        yield break;
     }
 
     IEnumerator ManaRegen()
@@ -74,11 +78,34 @@ public class PlayerMovement : MonoBehaviour
         canRegen = true;
     }
 
+    IEnumerator SwitchMagic()
+    {
+        if (!equipped)
+        {
+            Debug.Log("Eqipped");
+            FBMagic.SetActive(true);
+            equipped = true;
+            yield break;
+        }
+        else if (equipped)
+        {
+            Debug.Log("Uneqipped");
+            FBMagic.SetActive(false);
+            equipped = false;
+            yield break;
+        }
+    }
+
     void Update()
     {
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal"); // set user input to x 
         change.y = Input.GetAxisRaw("Vertical"); // set user input to y
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(SwitchMagic());
+        }
 
         if (change != Vector3.zero) // if change value more not 0 then call move function, for optimization
         {

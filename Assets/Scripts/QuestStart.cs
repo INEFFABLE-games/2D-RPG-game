@@ -27,6 +27,16 @@ public class QuestStart : MonoBehaviour
                 message.text = "Эй, странник! Мне нужна твоя помошь, доставь это письмо в соседний город Баленос, он находится на северо-востоке отсюда.";
                 Sign.text = "";
             }
+            else if(QuestNumber == 2)
+            {
+                message.text = "Эй, ты можешь мне помочь? Темные рыцари захватили мою шахту, найди и забери фрагмент рубина.";
+                Sign.text = "";
+            }
+            else if(QuestNumber == 3 && other.GetComponent<QuestSystem>().CompletedQuest[2])
+            {
+                message.text = "Этот красный рубин!Я знаю что при помощи него можно изгнать зло, что обитает на севере...";
+                Sign.text = "";
+            }
 
             other.GetComponent<QuestSystem>().ActiveQuest[QuestNumber] = true;
         }

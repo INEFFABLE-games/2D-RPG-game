@@ -222,8 +222,9 @@ MonoBehaviour:
   _mana: 0
   ChangeValue: 0
   items:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3445946054620559526, guid: 0ef52d3fa31b037419fd80a7f18c884a, type: 3}
+  - {fileID: 3445946054620559526, guid: 10dbf0fb3b8b39347b34d8d4edb86814, type: 3}
+  Skeleton: {fileID: 3082236712797090535, guid: 3118456433cb3c84493c0c6fbe50a6a1, type: 3}
   effect: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
   expText: {fileID: 940741810609655334, guid: 5fe12d331b7aaf94a9415b9173be51c3, type: 3}
   template: {fileID: 1465686331917439642}

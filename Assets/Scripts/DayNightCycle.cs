@@ -16,11 +16,11 @@ public class DayNightCycle : MonoBehaviour
 
     IEnumerator ToNight()
     {
-        for(int x = 4,y = 54,z = 156;(x < 255 && z < 255 && y < 255);x++,z++,y++)
+        for(float x = 1;x >= 0;x-=.001f)
         {
-            Light.GetComponent<Light2D>().color = new Color(x,y,z);
-            yield return new WaitForSeconds(1);
-            Debug.Log("ToNight");
+            Light.GetComponent<Light2D>().intensity = x;
+            yield return new WaitForSeconds(.1f);
+            //Debug.Log("ToNight");
         }
         StartCoroutine(ToDay());
         yield break;
@@ -28,11 +28,11 @@ public class DayNightCycle : MonoBehaviour
 
     IEnumerator ToDay()
     {
-        for(int x = 255,y = 255,z = 255;(x < 4 && z < 54 && y < 156);x--,z--,y--)
+        for(float x = 0;x <= 1;x+=.001f)
         {
-            Light.GetComponent<Light2D>().color = new Color(x,y,z);
-            yield return new WaitForSeconds(1);
-            Debug.Log("ToDay");
+            Light.GetComponent<Light2D>().intensity = x;
+            yield return new WaitForSeconds(.1f);
+            //Debug.Log("ToNight");
         }
         StartCoroutine(ToNight());
         yield break;

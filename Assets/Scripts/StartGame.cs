@@ -11,12 +11,10 @@ public class StartGame : MonoBehaviour
 
     }
 
-    public void Start_Game()
+    public static void Start_Game()
     {
         SceneManager.UnloadSceneAsync("MainMenu");
         SceneManager.LoadSceneAsync("MainWorld", LoadSceneMode.Single);
-
-
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainWorld"));
 

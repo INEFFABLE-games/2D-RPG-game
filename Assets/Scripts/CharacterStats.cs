@@ -8,6 +8,8 @@ public class CharacterStats : AbstractCharacter
 {
 
     List<string> enemyNames;
+    [SerializeField]
+    GameObject Skeleton;
 
     public GameObject effect;
     public Sprite dead;
@@ -142,6 +144,8 @@ public class CharacterStats : AbstractCharacter
         //this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
         Instantiate(effect, transform.position, transform.rotation);
         GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryUI>().DropAllItems();
+
+        Instantiate(Skeleton,transform.position,transform.rotation);
 
         //Destroy(this.gameObject);
         Respawn();

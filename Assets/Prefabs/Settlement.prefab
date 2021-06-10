@@ -475,6 +475,7 @@ MonoBehaviour:
   _maxMana: 0
   _mana: 0
   ChangeValue: 0
+  Skeleton: {fileID: 3082236712797090535, guid: 3118456433cb3c84493c0c6fbe50a6a1, type: 3}
   effect: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
   dead: {fileID: 122268285079091143, guid: 4c0c767fd1a4d9f4f915ea7e9799c8bb, type: 3}
   expText: {fileID: 940741810609655334, guid: 5fe12d331b7aaf94a9415b9173be51c3, type: 3}

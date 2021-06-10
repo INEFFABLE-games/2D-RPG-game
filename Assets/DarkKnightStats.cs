@@ -13,6 +13,8 @@ public class DarkKnightStats : AbstractCharacter
     List<GameObject> items;
     bool canDamage;
 
+    [SerializeField]
+    GameObject Skeleton;
     public GameObject effect;
     //public Sprite dead;
     public GameObject expText;
@@ -35,6 +37,8 @@ public class DarkKnightStats : AbstractCharacter
     {
         yield return new WaitForSeconds(Random.Range(.5f,3f));
         gameObject.GetComponent<Pathfinding.AIDestinationSetter>().target = null;
+        gameObject.transform.position = gameObject.GetComponent<AbstractCharacter>().respawnPosition;
+
         yield break;
     }
 
@@ -118,8 +122,10 @@ public class DarkKnightStats : AbstractCharacter
         //this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
         Instantiate(effect, transform.position, transform.rotation);
 
+        Instantiate(Skeleton,transform.position,transform.rotation);
+
         var plrStats = GameObject.FindGameObjectWithTag("Player").GetComponent<AbstractCharacter>();
-        plrStats.exp += 100 * (10 + this.level - plrStats.level) / (10 + plrStats.level);
+        plrStats.exp += (100 * (10 + this.level - plrStats.level) / (10 + plrStats.level))*10;
         plrStats.reputation += 100;
 
         Respawn();

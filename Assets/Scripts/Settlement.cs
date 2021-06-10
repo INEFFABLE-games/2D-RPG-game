@@ -9,6 +9,9 @@ public class Settlement : AbstractCharacter
 
     List<string> enemyNames;
 
+    [SerializeField]
+    GameObject Skeleton;
+
     public GameObject effect;
     public Sprite dead;
     public GameObject expText;
@@ -93,8 +96,10 @@ public class Settlement : AbstractCharacter
         this.gameObject.GetComponent<SpriteRenderer>().sprite = dead;
         Instantiate(effect, transform.position, transform.rotation);
 
+        Instantiate(Skeleton,transform.position,transform.rotation);
+
         var plrStats = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>();
-        plrStats.exp += 100 * (10 + this.level - plrStats.level) / (10 + plrStats.level);
+        plrStats.exp += (100 * (10 + this.level - plrStats.level) / (10 + plrStats.level))*5;
 
         Respawn();
 

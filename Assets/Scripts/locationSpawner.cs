@@ -9,7 +9,7 @@ public class locationSpawner : MonoBehaviour
     {
         if (canSpawn)
         {
-            Debug.Log("Spawning...");
+            //Debug.Log("Spawning...");
             canSpawn = false;
             if (location != null)
                 GameObject.Destroy(location);

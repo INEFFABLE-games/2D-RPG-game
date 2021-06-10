@@ -20,6 +20,9 @@ TagManager:
   - Inventory
   - Shop
   - ShopForStats
+  - DungStair
+  - FireBallMagic
+  - EndGameScreen
   layers:
   - Default
   - TransparentFX
