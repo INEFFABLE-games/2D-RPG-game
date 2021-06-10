@@ -11,6 +11,8 @@ public class CharacterStats : AbstractCharacter
     [SerializeField]
     GameObject Skeleton;
 
+    public bool FAQWASOPENED;
+
     public GameObject effect;
     public Sprite dead;
     public uint startLevel;

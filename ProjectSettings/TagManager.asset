@@ -23,6 +23,7 @@ TagManager:
   - DungStair
   - FireBallMagic
   - EndGameScreen
+  - FAQ
   layers:
   - Default
   - TransparentFX

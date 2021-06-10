@@ -11,10 +11,6 @@ public class Shop : MonoBehaviour
     [SerializeField]
     bool canOpen;
 
-    [SerializeField]
-    GameObject ShopUI;
-
-
     void Open()
     {
 
@@ -25,7 +21,7 @@ public class Shop : MonoBehaviour
         {
             canOpen = true;
             text.SetActive(true);
-            ShopUI.SetActive(true);
+            GameObject.FindGameObjectWithTag("Player").transform.Find("Shop").transform.Find("ShopUI").gameObject.SetActive(true);
             GameObject.FindGameObjectWithTag("Shop").GetComponent<ShopUI>().UpdateInventorySlots();
             other.GetComponent<AbstractCharacter>().CanShoot = false;
         }
@@ -38,7 +34,8 @@ public class Shop : MonoBehaviour
             canOpen = false;
             text.SetActive(false);
 
-            ShopUI.SetActive(false);
+            GameObject.FindGameObjectWithTag("Player").transform.Find("Shop").transform.Find("ShopUI").gameObject.SetActive(false);
+
             other.GetComponent<AbstractCharacter>().CanShoot = true;
         }
     }
