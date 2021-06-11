@@ -98,7 +98,8 @@ public class InventoryUI : MonoBehaviour
             //PickedItem.SetActive(false);
         }
 
-        SlotsUpdate();
+        UpdateInventorySlots();
+        UpdateEquipSlots();
         //UpdateInventorySlots();
 
     }
@@ -109,8 +110,11 @@ public class InventoryUI : MonoBehaviour
         foreach (var item in allitems)
         {
             item.SetParent(null);
-            item.position = transform.position + new Vector3(Random.Range(-1.5f,1.5f),Random.Range(-1.5f,1.5f),0);
+            item.position = transform.position + new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0);
         }
+
+        UpdateInventorySlots();
+        UpdateEquipSlots();
 
     }
 
@@ -136,12 +140,13 @@ public class InventoryUI : MonoBehaviour
         if (itemId != null)
         {
             itemId.transform.SetParent(null);
-            itemId.transform.position = transform.position + new Vector3(Random.Range(-1.5f,1.5f),Random.Range(-1.5f,1.5f),0);
+            itemId.transform.position = transform.position + new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0);
 
             //Items.RemoveAt(itemId);
 
         }
-        SlotsUpdate();
+        UpdateInventorySlots();
+        UpdateEquipSlots();
         //UpdateInventorySlots();
 
     }
@@ -177,7 +182,10 @@ public class InventoryUI : MonoBehaviour
             }
 
         }
-        SlotsUpdate();
+
+        UpdateInventorySlots();
+        UpdateEquipSlots();
+
     }
 
     void UpdateInventorySlots()

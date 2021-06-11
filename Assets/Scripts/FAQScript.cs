@@ -37,7 +37,7 @@ public class FAQScript : MonoBehaviour
         _tip++;
         if (_tip == tips.Count+1)
         {
-            GameObject.FindGameObjectWithTag("Player").transform.Find("FAQ").gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("FAQ").gameObject.SetActive(false);
             return;
         }
         StartTips();
